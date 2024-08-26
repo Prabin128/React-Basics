@@ -14,14 +14,14 @@
    }  
    ```  
 
-Here, the **<h1>** tag is not HTML but JSX. This JSX is later transformed by React into a JavaScript object that represents a DOM node. This object is used by React to efficiently update the actual DOM in the browser, ensuring that the UI is always in sync with the application state.
+Here, the **`<h1>`** tag is not HTML but JSX. This JSX is later transformed by React into a JavaScript object that represents a DOM node. This object is used by React to efficiently update the actual DOM in the browser, ensuring that the UI is always in sync with the application state.
 
 
 
 
 # How JSX Works in the Code
 
-### JSX is used in the "App.jsx" file, where you see the line:
+#### JSX is used in the "App.jsx" file:
 ``` In the App.jsx file of our React project: ```  
  ```js
     return ( 
@@ -31,7 +31,7 @@ Here, the **<h1>** tag is not HTML but JSX. This JSX is later transformed by Rea
 
 - JSX allows us to write what looks like HTML within your JavaScript code. 
 - Under the hood, JSX is transformed into React elements via a tool like Babel.
-- For example, the JSX <h1>hello world</h1> is transpiled to a React.createElement call like this:
+- For example, the JSX `<h1>`hello world`</h1>` is transpiled to a React.createElement call like this:
  ```js
     return React.createElement('h1', null, 'hello world'); 
    ```  
