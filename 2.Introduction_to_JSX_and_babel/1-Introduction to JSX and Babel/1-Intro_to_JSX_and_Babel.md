@@ -51,12 +51,12 @@ When writing JSX, the rule is that any component must return a single element. T
 ```js
    function App() {
       return (
-            <h1>Top 3 Best Movies</h1>
-            <ul>
-               <li>MAVRIK</li>
-               <li>TOP GUN</li>
-               <li>TENET</li>
-            </ul>
+         <h1>Top 3 Best Movies</h1>
+         <ul>
+            <li>MAVRIK</li>
+            <li>TOP GUN</li>
+            <li>TENET</li>
+         </ul>
       )
    }
 ```  
@@ -70,12 +70,12 @@ JSX is syntactic sugar for React.createElement() calls. When JSX is compiled, ea
 
 ```js 
    return (
-   <h1>Top 3 Best Movies</h1>
-   <ul>
-      <li>MAVRIK</li>
-      <li>TOP</li>
-      <li>TENET</li>
-   </ul>
+      <h1>Top 3 Best Movies</h1>
+      <ul>
+         <li>MAVRIK</li>
+         <li>TOP</li>
+         <li>TENET</li>
+      </ul>
    )
 
 ```
@@ -145,6 +145,7 @@ This will also compile into a single React.Fragment root element:
 
 ```  
 ### Why Use One Solution Over the Other?  
+
 **Using a div:** This is the simplest and most common approach. It’s straightforward and works well when we don’t mind adding an extra element to the DOM. However, if we're concerned about unnecessary divs cluttering our HTML, this might not be ideal.
 
 **Using a Fragment:** This is more elegant when we don't want to introduce unnecessary elements into the DOM. It’s particularly useful in scenarios where we need to avoid altering the layout or when working with CSS where extra elements might interfere with styling.
