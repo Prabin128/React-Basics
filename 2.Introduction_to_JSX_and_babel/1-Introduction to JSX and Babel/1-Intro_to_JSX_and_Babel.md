@@ -63,6 +63,7 @@ When writing JSX, the rule is that any component must return a single element. T
 Here, both **`<h1>`** and **`<ul>`** are siblings, which means they are adjacent JSX elements. Since JSX requires a single enclosing element, this will throw an error because the function App cannot return more than one root element.
 
 ### Error:
+![Screenshot 2024-08-29 171934](https://github.com/user-attachments/assets/edaedd1a-a0db-4a9c-af28-cd8a5c88001a)
 
 
 ### Why Does This Rule Exist?
