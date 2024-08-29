@@ -5,7 +5,7 @@
 
 **Step 2.** Verify that you have the latest version of VSCode. If you don’t, go to ``` https://code.visualstudio.com/download ``` to get the version suitable for your operating system.  
     
-**Step 3.** Open a Terminal or command prompt and navigate to the folder where you want to set up your React project. If you're unsure how to do this, you might want to refer back to earlier lessons or use CodeSandbox as an alternative.
+**Step 3.** Open a Terminal or command prompt and navigate to the folder where you want to set up your React project. 
   
 **Step 4.** Generate a Vite application by executing the following command in your Terminal or Command Prompt:
 ```http

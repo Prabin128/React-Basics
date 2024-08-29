@@ -12,7 +12,7 @@ function App() {
           In this case, <h1>hello world</h1> is JSX. 
           When the App component is rendered, this JSX is converted to a React element that the browser can understand and render as HTML.*/
   return ( 
-    <h1>hello world</h1>  //Hence, inside a js file , we are able to write plain html. This is JSX  does.React works by creating this JSX files.
+    <h1>hello world</h1> //Hence, inside a js file , we are able to write plain html. This is JSX  does.React works by creating this JSX files.
   )
 }
 
