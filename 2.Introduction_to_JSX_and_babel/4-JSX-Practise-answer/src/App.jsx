@@ -6,14 +6,14 @@ import './App.css'
   function App() {
 
     return (
-      <>
+      <div class>
         <h1>Top 3 Best Movies</h1>
         <ul>
           <li>MAVRIK</li>
-          <li>TOP</li>
+          <li>TOP GUN</li>
           <li>TENET</li>
         </ul>
-      </>
+      </div>
     )
   }
 
