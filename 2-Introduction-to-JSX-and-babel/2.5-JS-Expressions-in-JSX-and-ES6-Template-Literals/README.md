@@ -2,9 +2,11 @@
 
 Using JSX, we were able to insert HTML into JavaScript.
 
-JSX also lets us add HTML inside a JavaScript file and then insert JavaScript inside that HTML,
+JSX also lets us add HTML inside a JavaScript file and then insert JavaScript inside that HTML,  
 
-![JavaScript](https://github.com/user-attachments/assets/cdf03c92-db92-42b9-a3b8-32b4913808da)
+<div align="center">
+  <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/JSX_introduction.png" width="700" >
+</div>  
 
 
 ```js
@@ -48,8 +50,9 @@ function App() {
         </>
     )
 }
-```
+```  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 # Limitations
 
@@ -77,7 +80,8 @@ function App() {
 
  Difference between expressions and statements is :
 - expression will be evaluated to a value, right? Like it ends up, after all the code's been executed,it ends up equaling something. 
-- but the above statement is actually asking the computer to do some work to evaluate this statement and then depending on that statement workout something.
+- but the above statement is actually asking the computer to do some work to evaluate this statement and then depending on that statement workout something.  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
 
 
 # Template Literals in JSX
@@ -97,7 +101,9 @@ const age = 25;
 
 const message = `Hello, my name is ${name} and I am ${age} years old.`;
 console.log(message); // Output: Hello, my name is Alice and I am 25 years old.
-```
+```  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
+
 ### 2.Multi-line Strings:
 Template literals allow us to create strings that span multiple lines without the need for concatenation or escape characters like ***\n***.
 Example:
@@ -107,7 +113,9 @@ const message = `This is a multi-line
 string using template literals.
 It preserves the line breaks.`;
 console.log(message);
-```
+```  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+
 ### 3.Expression Substitution
 We can embed more complex expressions within ***${}***. These expressions can be calculations, function calls, or any valid JavaScript expression..
 
@@ -121,7 +129,9 @@ const result = `The sum of ${x} and ${y} is ${x + y}.`;
 console.log(result); // Output: The sum of 5 and 10 is 15.
 
 ```
-Here, ***${x + y}*** is an expression that gets evaluated and inserted into the string.      
+Here, ***${x + y}*** is an expression that gets evaluated and inserted into the string.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.Tagged Templates
 Tagged templates allow you to parse a template literal with a function. This gives you more control over the string processing.
@@ -146,7 +156,8 @@ console.log(result);
 ['Hello, my name is ', ' and I am ', ' years old.']
 ['Alice', 25]
 Tagged Template
-```
+```  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 #### Summary:
 
@@ -155,10 +166,9 @@ Tagged Template
     - They support multi-line strings without needing escape characters.
     - They can be used with tagged templates for more advanced string manipulation.
 
-Template literals make string handling much easier and more readable compared to traditional string concatenation.
+Template literals make string handling much easier and more readable compared to traditional string concatenation.  
 
-
-
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
 
 ### Using Template Literals in React
 
@@ -179,4 +189,7 @@ function App() {
 - We've got ***`${firstName} ${lastName}`*** interpreted as a string using the ES6 template literals
 - then we've got string as ***{***`${firstName} ${lastName}`***}*** being inserted in as JavaScript in these curly braces from JSX, and
 - then ***Hello my name is {`${firstName} ${lastName}`}***  being inserted as a string into ***h1*** 
-- and then Finally, the entire JSX expression, including the JavaScript code, is being rendered and executed within a JavaScript file..
+- and then Finally, the entire JSX expression, including the JavaScript code, is being rendered and executed within a JavaScript file.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+

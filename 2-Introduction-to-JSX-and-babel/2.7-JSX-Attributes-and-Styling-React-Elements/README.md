@@ -23,10 +23,14 @@ function App() {
   color: red;
 }
 ```
-The above code would work fine if this was a HTML File. But in react, its a JSX File. Although, in this case, it still works, and when applying this heading class style into our ***h1***, it does in fact change the color to red.
+The above code would work fine if this was a HTML File. But in react, its a JSX File. Although, in this case, it still works, and when applying this heading class style into our ***h1***, it does in fact change the color to red.  
 
-``` But the problem is: It throws an error in console as: ```
+``` But the problem is: It throws an error in console as: ```    
 
+
+<div align="center">
+  <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/JSX_attribute_error.png" width="700" >
+</div>  
 
 
 We can see that there is a warning saying, "Invalid DOM property `class`. Did you mean 'className'?"
@@ -76,9 +80,11 @@ A list of all the HTML global attributes.
 
 So these attributes(from the link above) can be used on any HTML element. And one of these is called ***contenteditable***.
 
-In normal HTML, the  contenteditabble is written all one word without camel-cased, but in JSX it should be in camel-cased as VS code automatically suggests for it as :
-
-![Screenshot 2025-02-16 210644](https://github.com/user-attachments/assets/29ed5b03-15e6-416c-9517-2b1c9bfe853e)
+In normal HTML, the  contenteditabble is written all one word without camel-cased, but in JSX it should be in camel-cased as VS code automatically suggests for it as :  
+    
+<div align="center">
+  <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/JSX_Styling.png" width="700" >
+</div>  
 
 
 
