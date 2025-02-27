@@ -1,0 +1,12 @@
+{
+  "name": "named-export",
+  "version": "1.0.0",
+  "description": "explanation of import and export",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
