@@ -14,7 +14,8 @@
 - This is essential for maintaining clean, readable, and manageable code.
 
 Modules allow to organize code logically by separating concerns (e.g., `components`, `utilities`, and `styles`).  
-They also make it easier to share code across different files or projects.  
+They also make it easier to share code across different files or projects. 
+
 
 [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
@@ -25,7 +26,7 @@ There are two types of exports:
 
 1. Named Exports
 2. Default Exports  
-        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 2.1 Named Exports  
 Named exports allow to export multiple `variables`, `functions`, or `classes` from a single file. We can export as many items as we want from a file.  
@@ -33,7 +34,7 @@ Named exports allow to export multiple `variables`, `functions`, or `classes` fr
 Note : WE cannot directly use the ES6 import export. For that we need to initialize the npm as : `npm init` in terminal staying inside the folder in our case its "Using-Named-Export" folder. and
 To load an ES module, we should set `"type": "module"` in the package.json or use the .mjs extension.
 Now it will work fine.  
-        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### Setting Up ES6 Modules in Node.js
 By default, Node.js does not support ES6 `import` and `export` syntax directly. To enable ES6 modules, follow these steps:
@@ -54,7 +55,7 @@ By default, Node.js does not support ES6 `import` and `export` syntax directly. 
 
 Once these steps are completed, ES6 import/export syntax will work correctly.  
 
-        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 **Example: Named Exports**
 
@@ -72,7 +73,7 @@ import { add, subtract } from './utils.js';
 console.log(add(1, 2));  // 3
 console.log(subtract(5, 2));  // 3  
 ```   
-        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 2.2 Default Export
 A default export allows us to export one item (`function`, `object`, `class`, etc.) from a module.  
@@ -103,7 +104,7 @@ console.log(greet());  // "Hello, World!"
 The import statement is used to bring in `variables`, `functions`, or `classes` that were exported from another file.    
 We can import either named exports or default exports.    
 
-    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.1 Importing Named Exports  
 
@@ -120,7 +121,7 @@ import { add, subtract } from './utils';
 
 console.log(add(5, 3));  // 8   
 ```  
-    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.2 Importing Default Exports
 
@@ -143,7 +144,7 @@ import greet from './greeting';
 
 console.log(greet());  // "Hello, World!"  
 ```   
-    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.3 Importing Everything from a Module   
 
@@ -163,7 +164,7 @@ import * as utils from './utils';
 console.log(utils.add(2, 3));  // 5
 console.log(utils.subtract(5, 2));  // 3
 ```    
-    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ## ⚠ Common Mistake When Importing Default Exports
 If we try to import everything from a module that has a default export using import * as, it will cause an error.  
