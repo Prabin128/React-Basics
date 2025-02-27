@@ -146,9 +146,11 @@ console.log(greet());  // "Hello, World!"
 ```   
 [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
-### 3.3 Importing Everything from a Module   
+### 3.3 Importing Everything from a Module Using the Wildcard (`*`)
 
-We can import all the named exports from a module as an object:
+We can import all the named exports from a module as an object:  
+We can import all the exports from a module using the wildcard (*) symbol.  
+This imports everything as a single object, and we can then access the individual exports using properties on that object.  
 
 **`utils.js`**
 ```js
