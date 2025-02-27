@@ -12,7 +12,9 @@ OR, technically
 
 - **Reusability**: Write once and reuse the component wherever required.
 - **Separation of Concerns**: Break down a complex interface into smaller, manageable pieces.
-- **Maintainability**: Make updates in one place, and they are reflected throughout the app.  
+- **Maintainability**: Make updates in one place, and they are reflected throughout the app.    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 # 2. Components Naming Conventations   
 
@@ -23,7 +25,9 @@ This helps differentiate React components from regular HTML elements, which are 
 
 -  `Greetings` (React Component)
 - `button`, `div`, `p` (HTML elements)   
-By following `PascalCase`, React can easily distinguish custom components from built-in HTML elements.   
+By following `PascalCase`, React can easily distinguish custom components from built-in HTML elements.    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 # 3. Types  of Components
@@ -67,7 +71,9 @@ Here,
 
 - **Lifecycle Methods**: Class components provide lifecycle methods for managing side effects (e.g., `componentDidMount`, `componentWillUnmount`), while functional components use hooks like useEffect to achieve similar behavior.
 
-Class components were the primary way to write React components before the introduction of hooks, which allow functional components to manage state and side effects as well. However, class components are still widely used, especially in older React codebases.  
+Class components were the primary way to write React components before the introduction of hooks, which allow functional components to manage state and side effects as well. However, class components are still widely used, especially in older React codebases.   
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 # 4. Splitting Code Into Multiple Components  
@@ -84,7 +90,9 @@ function Greetings() {
   return <h1>Good Morning, User!</h1>;
 }
 ```
-By separating the `Greetings` component, it becomes easier to maintain and manage its code separately.
+By separating the `Greetings` component, it becomes easier to maintain and manage its code separately.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 # 5. Importing and Exporting Components  
@@ -102,7 +110,9 @@ export default Greetings;
 ```jsx
 import Greetinngs from './Greetings';  
 ```
-This makes the `Heading` component available to use in the file where it’s imported.  
+This makes the `Heading` component available to use in the file where it’s imported.    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 # 6. Best Practices for Writing React Components  
 
@@ -117,8 +127,9 @@ This makes the `Heading` component available to use in the file where it’s imp
 
 **Use Prop Types**: For better maintainability, always define `propTypes` for our components to validate the type and shape of props.
 
-**Destructure Props**: Destructure props directly in the function parameter for cleaner code.
+**Destructure Props**: Destructure props directly in the function parameter for cleaner code.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 # 7. Creating and using First Component 
@@ -178,7 +189,9 @@ The `createRoot` function from `react-dom/client` is used to mount the component
 
 - The `App` component is imported into main.jsx and rendered using the `createRoot` method. React looks at this component and renders the JSX that it returns, in this case, the heading `<h1>Good morning! This is displayed from the component.</h1>`.  
 
-- The purpose of having this `App` component is to encapsulate the logic for the part of the UI that we want to render (in this case, just the heading). As we build the application further, we can add more components, manage state, and pass props between components. 
+- The purpose of having this `App` component is to encapsulate the logic for the part of the UI that we want to render (in this case, just the heading). As we build the application further, we can add more components, manage state, and pass props between components.   
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 # 8. Component File Organization  
 As our app grows, it’s important to keep our components organized. Here’s a basic structure for organizing React components:
@@ -191,7 +204,9 @@ As our app grows, it’s important to keep our components organized. Here’s a 
     App.jsx
   main.jsx 
   ```
-This way, all our components are in the /components folder, and the `main.jsx` file acts as the entry point, which imports the necessary components. 
+This way, all our components are in the /components folder, and the `main.jsx` file acts as the entry point, which imports the necessary components.   
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 # Final Code Example 
@@ -235,6 +250,8 @@ createRoot(document.getElementById('root')).render(
    <List />
   </StrictMode>,
 )
-```
+```  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
