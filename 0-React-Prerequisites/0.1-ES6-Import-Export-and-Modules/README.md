@@ -5,13 +5,18 @@
 - This is crucial for managing code in modular, maintainable pieces, especially when working with React.  
 - Understanding ES6 Modules and how to use `import` and `export` statements will allow to structure React applications efficiently, making our code easier to manage, debug, and scale.   
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+
+
 ## 1. What are Modules?
 - In JavaScript, modules are a way of dividing our code into reusable pieces.  
 - With ES6 modules, JavaScript allows us to split our code into different files and load them as needed.  
 - This is essential for maintaining clean, readable, and manageable code.
 
 Modules allow to organize code logically by separating concerns (e.g., `components`, `utilities`, and `styles`).  
-They also make it easier to share code across different files or projects.
+They also make it easier to share code across different files or projects.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ## 2. Exporting in ES6
 The export statement is used to expose `functions`, `objects`, or values from one file so that they can be imported and used in other files.
@@ -20,6 +25,7 @@ There are two types of exports:
 
 1. Named Exports
 2. Default Exports  
+        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 2.1 Named Exports  
 Named exports allow to export multiple `variables`, `functions`, or `classes` from a single file. We can export as many items as we want from a file.  
@@ -27,6 +33,7 @@ Named exports allow to export multiple `variables`, `functions`, or `classes` fr
 Note : WE cannot directly use the ES6 import export. For that we need to initialize the npm as : `npm init` in terminal staying inside the folder in our case its "Using-Named-Export" folder. and
 To load an ES module, we should set `"type": "module"` in the package.json or use the .mjs extension.
 Now it will work fine.  
+        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### Setting Up ES6 Modules in Node.js
 By default, Node.js does not support ES6 `import` and `export` syntax directly. To enable ES6 modules, follow these steps:
@@ -47,6 +54,8 @@ By default, Node.js does not support ES6 `import` and `export` syntax directly. 
 
 Once these steps are completed, ES6 import/export syntax will work correctly.  
 
+        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+
 **Example: Named Exports**
 
 **`utils.js`**
@@ -62,7 +71,8 @@ import { add, subtract } from './utils.js';
 
 console.log(add(1, 2));  // 3
 console.log(subtract(5, 2));  // 3  
-```  
+```   
+        [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 2.2 Default Export
 A default export allows us to export one item (`function`, `object`, `class`, etc.) from a module.  
@@ -86,9 +96,14 @@ import greet from './greeting.js';
 console.log(greet());  // "Hello, World!"  
 ```  
 
-## 3. Importing in ES6
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+
+## 3. Importing in ES6  
+
 The import statement is used to bring in `variables`, `functions`, or `classes` that were exported from another file.    
-We can import either named exports or default exports.   
+We can import either named exports or default exports.    
+
+    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.1 Importing Named Exports  
 
@@ -105,6 +120,7 @@ import { add, subtract } from './utils';
 
 console.log(add(5, 3));  // 8   
 ```  
+    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.2 Importing Default Exports
 
@@ -126,7 +142,8 @@ To import the default export:
 import greet from './greeting';
 
 console.log(greet());  // "Hello, World!"  
-```  
+```   
+    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ### 3.3 Importing Everything from a Module   
 
@@ -146,6 +163,7 @@ import * as utils from './utils';
 console.log(utils.add(2, 3));  // 5
 console.log(utils.subtract(5, 2));  // 3
 ```    
+    [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ## ⚠ Common Mistake When Importing Default Exports
 If we try to import everything from a module that has a default export using import * as, it will cause an error.  
@@ -162,7 +180,9 @@ console.log(greetedResult);
 
 - `import * as greetings` treats the entire module as an object.
 - Since the module only has a default export, it is stored as `greetings.default`, not `greetings.greet`.
-- The correct way to access it would be `greetings.default()`, but it's recommended to import default exports directly as shown earlier.
+- The correct way to access it would be `greetings.default()`, but it's recommended to import default exports directly as shown earlier.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 
 ## File Structure in Modules
@@ -182,8 +202,10 @@ src/
     string.js
   App.jsx
   main.js
-``` 
+```    
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
+ 
 #### Sample Example of Using ES6 Modules in React  
 
 **`math.js (utility file):`**  
@@ -229,7 +251,9 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-```
+```  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ## How ES6 Modules Relate to React  
 
@@ -240,9 +264,13 @@ The power of ES6 modules lies in its ability to import and export React componen
 
 2. **Component Reusability**: With named exports and default exports, we can import components into different files and reuse them as needed. This makes our codebase modular, clean, and maintainable.
 
-3. **Separation of Concerns**: We can organize the logic, styling, and behavior of our application in different files (using separate modules for state management, API calls, and UI components), allowing for better organization and easier debugging.
+3. **Separation of Concerns**: We can organize the logic, styling, and behavior of our application in different files (using separate modules for state management, API calls, and UI components), allowing for better organization and easier debugging.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
 
 ## Summary
 - **ES6 modules** enable a more organized and scalable way to write React applications.
 - With **import/export**, we can modularize our code by separating components, utilities, and other logic into individual files.
-- React applications naturally work well with ES6 modules, making them easier to maintain as the project grows.
+- React applications naturally work well with ES6 modules, making them easier to maintain as the project grows.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
