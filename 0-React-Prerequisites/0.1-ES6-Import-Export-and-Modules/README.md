@@ -166,7 +166,8 @@ import * as utils from './utils';
 console.log(utils.add(2, 3));  // 5
 console.log(utils.subtract(5, 2));  // 3
 ```    
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX) 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
+
 
 ## ⚠ Common Mistake When Importing Default Exports
 If we try to import everything from a module that has a default export using import * as, it will cause an error.  

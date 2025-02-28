@@ -1,0 +1,71 @@
+/* Global Reset */
+* {
+    margin: 0;  /* Removes default margin */
+    padding: 0;  /* Removes default padding */
+    box-sizing: border-box;  /* Includes padding & border in element's width/height */
+    font-family: 'Arial', sans-serif; /* Sets global font */
+}
+
+/* Footer Container */
+.footer {
+    position: absolute; /* Positions it relative to the nearest positioned ancestor */
+    bottom: 0; /* Sticks it to the bottom */
+    width: 100%; /* Full width */
+    background: linear-gradient(135deg, #1e3c72, #2a5298);  /* Gradient background */
+    color: white;  /* White text for contrast */
+    padding: 20px 0;  /* Adds spacing at top & bottom */
+    text-align: center;  /* Centers all text inside */
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2); /* Adds top shadow for depth */
+}
+
+/* Footer Content (Flexbox for alignment) */
+.footer-content {
+    display: flex;  /* Enables Flexbox */
+    justify-content: center;  /* Centers items horizontally */
+    align-items: center;  /* Centers items vertically */
+    gap: 50px;  /* Adds space between items */
+    flex-wrap: wrap; /* Ensures responsive behavior */
+}
+
+/* Footer Logo */
+.footer-logo {
+    font-size: 1.8rem;  /* Increases font size */
+    font-weight: bold;  /* Makes text bold */
+    cursor: pointer;  /* Shows pointer cursor on hover */
+}
+
+/* Footer Links (Styling List) */
+.footer-links {
+    list-style: none;  /* Removes default bullet points */
+    display: flex;  /* Aligns links in a row */
+    gap: 20px;  /* Adds space between links */
+}
+
+/* Footer Links (Anchor Tag Styling) */
+.footer-links a {
+    text-decoration: none;  /* Removes underline */
+    color: white;  /* Keeps text white */
+    font-size: 1rem;  /* Sets readable size */
+    transition: color 0.3s ease-in-out;  /* Smooth color change on hover */
+}
+
+/* Footer Links Hover Effect */
+.footer-links a:hover {
+    color: #ffcc00;  /* Changes color on hover */
+    text-shadow: 0px 0px 8px rgba(255, 204, 0, 0.8);  /* Adds glow effect */
+}
+
+/* Footer Copyright Text */
+.footer-text {
+    font-size: 0.9rem;  /* Slightly smaller text */
+    margin-top: 10px;  /* Adds spacing above */
+    opacity: 0.8;  /* Makes it slightly transparent */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;  /* Stacks items in a column */
+        gap: 20px;  /* Adjusts spacing for mobile */
+    }
+}

@@ -1,0 +1,27 @@
+/* Ensure the body and html take full height */
+html, body {
+    height: 100%; /* Makes sure the body stretches to full viewport height */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks navbar, content, and footer vertically */
+  }
+  
+  /* Wrapper for the entire page */
+  #root {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks navbar, content, and footer */
+    min-height: 100vh; /* Ensures it covers the full viewport height */
+  }
+  
+  /* Main content should take available space */
+  .main-content {
+    flex: 1; /* Pushes the footer to the bottom */
+  }
+
+
+
+
+
+
+

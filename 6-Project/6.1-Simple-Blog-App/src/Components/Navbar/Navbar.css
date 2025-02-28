@@ -1,0 +1,65 @@
+/* Reset styles */
+* {
+    margin: 0;  /*Removes the default margin from all elements. */
+    padding: 0;  /*Removes the default padding from all elements.*/
+    box-sizing: border-box;  /* Ensures that padding and borders are included within the total width/height of elements (prevents layout breaking). */
+    font-family: 'Arial', sans-serif;  /* Sets a default font for the entire page.*/
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;  /*Enables Flexbox, which makes layout control easier. */
+    justify-content: space-between;  /*Places the logo on the left and links on the right. */
+    align-items: center;  /*Vertically centers items inside the navbar. */
+    background: linear-gradient(135deg, #1e3c72, #2a5298);  /* Creates a gradient background from dark blue to lighter blue.*/
+    padding: 15px 50px;  /*Adds spacing (15px top-bottom, 50px left-right) to prevent content from sticking to edges. */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);  /* Adds a subtle shadow below the navbar for depth.*/
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;   /* Makes the logo text large for better visibility. */
+    font-weight: bold;  /*Makes the text bold for emphasis. */
+    color: white;    /*Ensures the logo is readable against the dark background. */
+    cursor: pointer;  /*Changes the cursor to a pointer when hovering over the logo (indicating it's clickable). */
+}
+
+/* Navbar links */
+.nav-links {
+    list-style: none;  /*Removes the default bullet points from <ul> elements. */
+    display: flex;  /*Makes the list items (<li>) align in a row. */
+    gap: 25px;  /*Adds spacing between each navigation item. */
+}
+
+.nav-links li {
+    display: inline-block;  /*Ensures that each <li> behaves like a block but stays in line. */
+}
+
+.nav-links a {
+    text-decoration: none;  /*Removes underline from links. */
+    color: white;  /*Makes the text white for contrast. */
+    font-size: 1.2rem;  /*Increases text size for better readability.*/
+    font-weight: 500;   /*Makes the text slightly bolder than normal. */
+    transition: color 0.3s ease-in-out;  /*Adds a smooth effect when the color changes on hover. */
+}
+
+.nav-links a:hover {
+    color: #ffcc00;  /*Changes text color to yellow when hovered. */
+    text-shadow: 0px 0px 8px rgba(255, 204, 0, 0.8);  /*Adds a glow effect when hovered. */
+}
+
+/* Responsive Navbar */
+
+/*@media (max-width: 768px) { ... } → Applies styles only when screen width is ≤ 768px (for tablets and mobile).*/
+@media (max-width: 768px) {
+    .navbar {  
+        flex-direction: column;  /*Changes navbar layout to vertical.*/
+        text-align: center;  /*Centers text for better mobile usability. */
+    }
+
+    .nav-links {    
+        margin-top: 10px;  
+        flex-direction: column;  /* Stacks links vertically.*/
+        gap: 15px;  /*Adds mot*/
+    }
+}
