@@ -29,6 +29,8 @@ Here:
 - `message` is a prop passed from the `ParentComponent` to the `ChildComponent`.
 - The `ChildComponent` accesses the `message` prop using `props.message` and displays it in an `<h1>` tag.
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#JSX)   
+
 # How to Use Props  
 
 ### 1. Passing Props to Components  
@@ -53,7 +55,7 @@ function Child(props) {
             <h2>Name: {props.name}</h2>
             <p>Age: {props.age}  </p>
             <p>Email: {props.email}  </p>
-            <img src= {props.img} alt =  {props.name}/>
+            <img src = {props.img} alt = {props.name}/>
         </>
     );
 }
