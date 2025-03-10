@@ -6,5 +6,6 @@ import Parent from './Parent.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Parent />
-  </StrictMode>,
+  </StrictMode>
+
 )
