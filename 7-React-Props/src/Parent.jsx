@@ -1,7 +1,8 @@
-import React from 'react'
-import './Parent.css'
-import Child from './Components/Child.jsx'
-import reactLogo from './assets/react.svg'
+import React from 'react';
+import './Parent.css';
+import Child from './Components/Child.jsx';
+import reactLogo from './assets/react.svg';
+
 
 
                   // 1. Sample Props Example 
@@ -23,18 +24,17 @@ import reactLogo from './assets/react.svg'
               //2. Passing Primitive Data Types
               //4. Using Default props 
               //5. Destructuring Props
+
 function Parent() {
-  
   return (
     <>
-      <Child name="Developer" age = {23} email="developer123@example.com" img= {reactLogo}  />
       <Child />
-
+      <Child name="Developer" age={23} email="developer123@example.com" img={reactLogo} />
     </>
-  )
+  );
 }
 
-export default Parent
+export default Parent;
 
 
 
