@@ -18,14 +18,14 @@ const testimonials = [
         quote: 'Happy to assist my senior Mr. Senior Developer in this practise question!!',
         email: 'intermediatedev123@example.com',
         image: image2,
-        isVerified: true,
+        isVerified: false,
 
     },
     {
         name: 'Junior Developer',
         title: 'Software Developer Intern',
         quote: 'I am so excited to learn this topic with the supervision of my senior and intermediate developer',
-        email: 'interdev123@example.com',
+        email: '',
         image: image3,
         isVerified: true,
 
