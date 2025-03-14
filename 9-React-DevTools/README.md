@@ -351,7 +351,7 @@ createRoot(document.getElementById('root')).render(
 
 - Install the React DevTools extension for desired browser (Chrome or Firefox).  
 
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#devtools)  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#devtools)  
 
 **2. Open React DevTools:**
 
@@ -359,14 +359,14 @@ createRoot(document.getElementById('root')).render(
 - Open the browser’s Developer Tools (F12 or Ctrl+Shift+I).
 - Go to the Components tab in React DevTools.  
 
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#devtools)  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#devtools)   
 
 **3. Inspect the Detail Component:**
 
 - Select the `Detail` component in the component tree.
 - Check the `props` section to ensure the `detailInfo` prop is being passed correctly.
 
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#devtools)  
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#devtools)   
 
 **4. Inspect the Card Component:**
 
