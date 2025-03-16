@@ -76,3 +76,11 @@ We may add some basic CSS to style the list of books to make it look like a book
 - **If a new book is added to the bookstore array, it should automatically be displayed on the app without needing any additional changes to the JSX code**. This is made possible by the dynamic mapping of data.
 
 [![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#devtools) 
+
+## Sample Output  
+
+<div align="center">
+  <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/mapping_output.png " width="700" >
+</div>    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#devtools) 
