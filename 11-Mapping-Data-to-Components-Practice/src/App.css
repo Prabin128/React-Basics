@@ -1,0 +1,89 @@
+.bookstore {
+  padding: 40px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.book{
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 300px;
+  transition: all 0.3s ease;
+  display:grid ;
+
+}
+
+.book:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.book h2 {
+  color: #333;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.book h3 {
+  color: #777;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.book p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  margin-top: 10px;
+}
+
+
+.book-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.book-author {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.book-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.4;
+}  
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-container .book {
+  margin: 15px;
+  width: 280px;
+}
+
+.book img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.book-container .book img {
+  height: 150px;
+  object-fit: cover;
+}
