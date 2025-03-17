@@ -69,8 +69,7 @@ When returning an object in an arrow function, we need to wrap the object in par
 const createPerson = (name, age) => ({ name: name, age: age });
 
 console.log(createPerson("Alice", 30));  // Output: { name: "Alice", age: 30 }
-```  
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#arrowFuntion)    
+```    
 
 Without parentheses, the function would be misinterpreted, as `{}` is seen as the block of code.
 
@@ -96,8 +95,7 @@ const multiply = (a, b) => a * b;
 const multiply = (a, b) => a * b;
 
 console.log(multiply(2, 3)); // Output: 6 
-```  
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#arrowFuntion)    
+```    
 
 This is equivalent to:
 
@@ -155,6 +153,8 @@ The key point here is that this in arrow functions is lexically bound, meaning i
 ### 2. Cannot be Used as Constructor Functions  
 
 - Arrow functions cannot be used as constructor functions. If we try to use an arrow function with new, it will throw an error.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/cut_line.png)](#arrowFuntion)   
 
 **Example:**
 
