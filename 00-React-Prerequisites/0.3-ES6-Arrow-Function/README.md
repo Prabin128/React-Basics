@@ -1,4 +1,4 @@
-# ES6 Arrow Function: Complete Documentation
+# ES6 Arrow Function
 
 - Arrow functions, `introduced in ES6`, provide a more concise syntax for writing functions in JavaScript.   
 - They are particularly useful when working with **callback functions** and **higher-order functions** (e.g., `map`, `filter`, `reduce`).  
