@@ -229,7 +229,7 @@ console.log(sum(1, 2, 3)); // Output: 6
 
 ### 4. Not Suitable for Methods in Objects  
 
-- Arrow functions are **not ideal** when defining methods on objects, particularly when you rely on the `this` context.
+- Arrow functions are **not ideal** when defining methods on objects, particularly when we rely on the `this` context.
 
 **Example 1: Arrow Function in Object Method (Issue with `this`)**
 
