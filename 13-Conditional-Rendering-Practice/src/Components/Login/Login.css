@@ -1,0 +1,158 @@
+/* Login Section
+.login-container {
+    width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  
+.login-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #3897f0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 20px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #2679b0;
+}
+
+.divider {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider span {
+    color: #999;
+    font-size: 14px;
+}
+
+.facebook-login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.facebook-login-button:hover {
+    background-color: #166fe5;
+}
+
+.forgot-password {
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #3897f0;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+} */
+
+
+/* Login Section */
+.login-container {
+    width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  
+.login-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #3897f0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 20px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #2679b0;
+}
+
+.divider {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider span {
+    color: #999;
+    font-size: 14px;
+}
+
+.facebook-login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.facebook-login-button:hover {
+    background-color: #166fe5;
+}
+
+.forgot-password {
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #3897f0;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
