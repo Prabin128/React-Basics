@@ -1,0 +1,35 @@
+.register-container {
+    width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  
+.register-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #3897f0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 20px;
+}
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #2679b0;
+}
