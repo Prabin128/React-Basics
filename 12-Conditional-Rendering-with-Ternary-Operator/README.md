@@ -1,18 +1,26 @@
+<a id="readme-top"></a>     
+
 # React Conditional Rendering with the Ternary Operator and AND Operator  
 
 In React, conditional rendering allows to render different UI elements based on some condition, such as whether a user is logged in or not.   
 Two common techniques for achieving ***conditional rendering*** are using the **`ternary` operator** and the **`AND` operator**.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator) 
+    
+
 # What is Conditional Rendering in React?
 In React, we often need to render different UI components depending on certain conditions.   
 For instance, we may want to show a login form if the user is not logged in, and a welcome message if they are logged in.
 
-This behavior is known as **conditional rendering**. We can achieve it using several methods, with the most popular being the **ternary operator** and the **AND operator**.  
+This behavior is known as **conditional rendering**. We can achieve it using several methods, with the most popular being the **ternary operator** and the **AND operator**.     
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)     
 
 # Using the Ternary Operator for Conditional Rendering   
 
 The ternary operator is a compact way to handle conditional logic directly within JSX.   
 It allows us to conditionally render components or elements based on a boolean value.
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)   
 
 **Syntax**
 ```js
@@ -22,6 +30,8 @@ condition ? exprIfTrue : exprIfFalse;
 - **condition**: The expression we want to evaluate (e.g., a boolean value).
 - **exprIfTrue**: The JSX that will be rendered if the condition is true.
 - **exprIfFalse**: The JSX that will be rendered if the condition is false. 
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)  
 
 **Example**  
 
@@ -42,6 +52,8 @@ Here:
 - If `isLoggedIn` is `true`, the `<h1>Welcome back!</h1>` will be rendered.
 - If `isLoggedIn` is `false`, the `<Login />` component will be rendered.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)  
+
 **Simplified Example**  
 
 Since `isLoggedIn` is already a boolean, we can simplify the condition:  
@@ -57,6 +69,7 @@ function App() {
   );
 }
 ```    
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)   
 
 # How the AND Operator Works:
 
@@ -71,8 +84,9 @@ For example, let's consider this expression: `x > 3 && x < 7`.
 - If `x` is `5`, both conditions are `true` (5 is greater than 3 and less than 7), so the expression evaluates to `true`, and the second expression is executed.
 - If `x` is `1`, the first condition (`x > 3`) is `false`. Since one of the conditions is false, the entire expression evaluates to `false`, and the second expression is not executed.
 
-Thus, this behavior makes it an efficient way to conditionally render content, as it skips the second expression when the condition is false.
+Thus, this behavior makes it an efficient way to conditionally render content, as it skips the second expression when the condition is false.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)  
 
 # Using the AND Operator for Conditional Rendering   
  
@@ -80,6 +94,7 @@ Thus, this behavior makes it an efficient way to conditionally render content, a
 - This method works by checking if the condition is `true` and only rendering the second expression if the condition evaluates to `true`.   
 - If the condition is `false`, nothing will be rendered.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)    
 
 **Syntax**  
 
@@ -89,6 +104,8 @@ condition && exprIfTrue;
 
 - **condition**: The expression we want to evaluate (e.g., a boolean value).
 - **exprIfTrue**: The JSX that will be rendered if the condition is `true`.    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)    
 
 **Example**  
 
@@ -109,6 +126,8 @@ Here:
 - If `isLoggedIn` is `true`, the `<h1>Welcome back!</h1>` will be rendered.
 - If `isLoggedIn` is `false`, nothing will be rendered (similar to returning `null`).  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/sub_section_line.png)](#ternaryOperator)    
+
 **Practical Example with Time Check**  
 
 ```jsx
@@ -125,9 +144,9 @@ function App() {
 Here:  
 
 - If the current time is greater than 12 (e.g., after noon), the message `"Why are you still working?"` is displayed.
-- If the time is before noon, nothing is rendered.  
+- If the time is before noon, nothing is rendered.    
 
-
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)   
 
 # Code  Description
 
@@ -137,7 +156,8 @@ In this React app, we'll demonstrate the following:
 
 **2. AND (&&) Operator**: This will be used to conditionally render content based on a specific condition — in this case, checking the current time. If the current time is after 12 PM, we show the message "Why are you still working?". If the current time is before 12 PM, we display nothing.
 
-
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)   
+  
 # Best Practices  
 
 **1. Use Ternary Operator for Multiple Conditions**: The ternary operator is more suitable when we need to handle two distinct cases (true/false) with different outputs. If we need more complex conditional logic, consider using the ternary operator.
@@ -149,3 +169,8 @@ In this React app, we'll demonstrate the following:
 **4. When to Use Null**: If we want to render nothing when a condition is false, we can either use null in a ternary operator or rely on the AND operator. Both methods will effectively prevent any UI from being displayed.
 
 **5. Ensure Readability**: Always make sure that our code is readable. While the ternary and AND operators are concise, too many inline expressions can lead to confusing code. Strive for a balance between brevity and clarity.
+
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#ternaryOperator)   
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
