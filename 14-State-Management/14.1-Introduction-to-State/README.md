@@ -398,7 +398,8 @@ const TodoItem = ({ isDone, toggleStrikeThrough }) => {
 
 - `onClick={toggleStrikeThrough}`: The onClick event handler listens for when the user clicks on the "Buy Milk" text. When clicked, it triggers the `toggleStrikeThrough` function passed down from the parent component, which toggles the value of `isDone`.
 
-**How It Works:**
+**How It Works:**  
+
 **1. Initial State**: When the app first loads, `isDone` is `false`, so no strikethrough is applied to the text "Buy Milk."
 
 **2. Clicking the Text**: When the user clicks on the "Buy Milk" text, the `toggleStrikeThrough` function is called, which toggles the `isDone` state between `true` and `false`.
