@@ -1,11 +1,14 @@
-# Understanding the Basics of State in React    
+<a id="readme-top"></a> 
 
+# Understanding the Basics of State in React    
 
 ## Introduction to State in React
 
 - State is a central concept in React that allows us to manage and track the data that can change over time in an application. 
 - The UI (User Interface) of a React app is driven by the state of the app. 
-- When the state of an application changes, React updates the UI to reflect the change. 
+- When the state of an application changes, React updates the UI to reflect the change.    
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
 
 ## 1. What is State?  
 
@@ -31,6 +34,7 @@
 
 - React optimizes the re-rendering process to only update parts of the UI that depend on the state that has changed.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)      
 
 # Basic Explanation:
 
@@ -64,6 +68,7 @@ Think of **state** like a variable inside a component that React keeps track of.
 - When the button is clicked, `setCount(count + 1)` increases `count` by `1`, and React updates the UI automatically.
  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
 
 **Complete Example**   
 
@@ -100,6 +105,7 @@ Here:
 
 - When the button is clicked, `setCount(count + 1)` updates the state, and React **automatically re-renders** the component.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)    
 
 # State in React: Declarative vs Imperative Programming  
 
@@ -218,6 +224,7 @@ Here's how the same to-do item with a "strikethrough" effect could be implemente
 In imperative programming, we need to manually manipulate the DOM, specifying exactly how elements should be updated. 
 Every time we want to change something, we interact with the DOM directly, often using event listeners.  
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
 
 # Comparing Declarative and Imperative Programming
 
@@ -229,15 +236,17 @@ Every time we want to change something, we interact with the DOM directly, often
 | **Reactivity**                   | UI updates automatically when state changes                        | Manual DOM updates are needed on each change                           |
 | **Example**                      | React components re-render automatically when state changes        | Direct DOM manipulation using event listeners                          |
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
+
 ## When to Use Each Approach:
 
 - **Declarative Programming (React)** is generally preferred for most UI updates because it makes the code cleaner and easier to manage.
 
 - **Imperative Programming** is typically used when you need to have more fine-grained control over how and when the DOM is updated, but it can become complex as your application grows.
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)   
 
-
-### Difference Between Props and State
+# Difference Between Props and State
 
 **Props:**
 
@@ -251,8 +260,14 @@ Every time we want to change something, we interact with the DOM directly, often
 - It is used to manage **dynamic data** that changes over time, such as user input, toggles, or counters.   
 - The component that owns the state can modify it.
 
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
 
-**Example: Props vs State**
+## Props vs State in Code
+
+### Props Example (Immutable)
+
+In this example, the **Parent** component passes data to the **Child** component using **props**. The **Child** component cannot modify the `message` prop.  
+
 ```jsx
 
 // Parent Component
@@ -265,5 +280,150 @@ function Parent() {
 function Child(props) {
   return <div>{props.message}</div>; // Props are read-only
 }
+```  
+- In the Parent component, `message` is a prop that is passed to the Child component.
+- The Child component simply displays the message but cannot change it.
+
+## State Example (Mutable)  
+
+In this example, the **Parent** component uses **state** to manage a counter. 
+The **Child** component can trigger a change in the state by calling a function passed down as a **prop**.  
+
+```jsx
+import React, { useState } from 'react';
+
+// Parent Component
+function Parent() {
+  const [count, setCount] = useState(0);  // State to manage the count
+
+  const increment = () => {
+    setCount(count + 1);  // Modify the state
+  };
+
+  return (
+    <div>
+      <Child count={count} increment={increment} />
+    </div>
+  );
+}
+
+// Child Component
+function Child(props) {
+  return (
+    <div>
+      <p>Current Count: {props.count}</p>  // Read the count from props
+      <button onClick={props.increment}>Increment</button>  // Modify state in Parent
+    </div>
+  );
+}
+
+```    
+
+- In the **Parent** component, `count` is a **state** variable, and `setCount` is the function that updates it.
+- The **Child** component receives `count` and `increment` as **props**, and when the button is clicked, it calls `increment`, which updates the state in the **Parent** component.  
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)    
+
+## Key Differences Between Props and State
+
+| **Aspect**           | **Props**                                    | **State**                                  |
+|----------------------|----------------------------------------------|--------------------------------------------|
+| **Mutability**       | Immutable (cannot be changed)                | Mutable (can be changed)                   |
+| **Source**           | Passed from a parent component to a child    | Managed within the component itself        |
+| **Purpose**          | Used to pass data from parent to child       | Used to manage dynamic data that changes over time |
+| **Modification**     | Cannot be changed by the child component     | Can be changed within the component that owns the state |
+| **Usage**            | For data that does not change                | For data that changes over time            |
+
+
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
+
+# Code Description   
+
+- In this project, we are building a simple React application that demonstrates the use of state to control the UI. 
+- The example uses a to-do list item (e.g., "Buy Milk") where the user can toggle a strikethrough effect by clicking on the text. 
+- This interaction is achieved using React's `useState` hook to manage the state of whether the item is completed (struck through) or not.
+   
+**Key Concepts Covered:**  
+
+- **State in React**: Using useState to manage dynamic data.
+- **Conditional Rendering**: Updating the appearance of the UI based on the state.
+- **Component Structure**: Organizing components in React for modularity and reuse. 
+
+## Explanation of the Code:
+**1. App Component:**
+The **App** component contains the state (`isDone`) and the function (`toggleStrikeThrough`) to modify the state.   
+The `App` component passes the state and the function down to the child component (`TodoItem`) as props.  
+
+```jsx
+function App() {
+  const [isDone, setIsDone] = useState(false);  // Declare the state variable
+
+  const toggleStrikeThrough = () => {
+    setIsDone(!isDone);  // Toggle the state. It changes the state (isDone) to the opposite of its current value (true to false or false to true).
+  };
+
+  return (
+    <div>
+      <TodoItem isDone={isDone} toggleStrikeThrough={toggleStrikeThrough} />
+    </div>
+  );
+}
+
+```  
+
+- `useState(false)`: This hook initializes a state variable `isDone` with a default value of `false` (meaning the item is not marked as done initially). `setIsDone` is the function used to update the state.
+
+- `toggleStrikeThrough`: This function toggles the value of `isDone` between `true` and `false` each time it's called. This allows us to toggle the strikethrough effect on the to-do item.
+
+- The `TodoItem` component is rendered inside the `App` component and receives `isDone` and `toggleStrikeThrough` as props. The state and state-modifying function are passed down for use in the child component. 
+
+**2. TodoItem Component:**
+The TodoItem component is a child component that renders the to-do item (`Buy Milk`) and applies a strikethrough effect when the user clicks on it. It receives `isDone` and `toggleStrikeThrough` as props from the parent component (`App`). 
+
+```jsx
+const TodoItem = ({ isDone, toggleStrikeThrough }) => {
+
+  const strikeThroughStyle = isDone ? { textDecoration: 'line-through' } : null;
+
+  return (
+    <p style={strikeThroughStyle} onClick={toggleStrikeThrough}>
+      Buy Milk
+    </p>
+  );
+};
+
 ```
-In the above example, `message` is a prop passed from Parent to Child. It cannot be changed by the Child component.
+- `strikeThroughStyle`: This variable determines whether the text should be displayed with a strikethrough. If `isDone` is `true`, the text will have a `line-through` decoration (i.e., the strikethrough effect). If isDone is false, no styling is applied.
+
+- `onClick={toggleStrikeThrough}`: The onClick event handler listens for when the user clicks on the "Buy Milk" text. When clicked, it triggers the `toggleStrikeThrough` function passed down from the parent component, which toggles the value of `isDone`.
+
+**How It Works:**
+**1. Initial State**: When the app first loads, `isDone` is `false`, so no strikethrough is applied to the text "Buy Milk."
+
+**2. Clicking the Text**: When the user clicks on the "Buy Milk" text, the `toggleStrikeThrough` function is called, which toggles the `isDone` state between `true` and `false`.
+
+**3. Conditional Styling**: Based on the value of `isDone`, the `strikeThroughStyle` variable is either set to { `textDecoration: 'line-through'` } (when `isDone` is `true`) or `null` (when `isDone` is `false`). This updates the appearance of the text by either applying or removing the strikethrough effect.
+
+**4. Re-render**: React automatically re-renders the component whenever the state (`isDone`) changes, updating the UI to reflect the new state.
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
+
+## Sample Output
+
+1. When the `isDone` state variable is `false` (`Initial State`):  
+
+<div align="center">
+    <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/state_todo_when_false.png " width="700" >
+</div>  
+
+2. When the `isDone` state variable is `true` (`After the user click the "Buy Milk"`):  
+
+<div align="center">
+    <img src="https://github.com/Prabin128/React-Basics/blob/main/assets/state_todo_when_true.png " width="700" >
+</div>  
+
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)   
+
+<p align="right">(<a href="#readme-top">Back to Top</a>)</p>
