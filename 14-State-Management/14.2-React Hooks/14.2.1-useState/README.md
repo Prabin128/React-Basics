@@ -153,7 +153,7 @@ export default Counter;
 
 ## Summary
 
--`useState` lets us add state to functional components
+- `useState` lets us add state to functional components
 - It returns an array with the current state and a setter function
 - Always use the setter function to update state
 - State updates trigger re-renders
