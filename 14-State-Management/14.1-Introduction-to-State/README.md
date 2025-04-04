@@ -336,7 +336,54 @@ function Child(props) {
 
 
 
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)     
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)       
+
+# State Initialization (Default Values)  
+In React, when we use the `useState` hook, we must provide an initial state value. 
+This value is the starting point of our state variable and is passed to `useState()` as an argument. 
+If the argument is not provided, React will initialize the state with `undefined`.
+
+**Explanation:**  
+- **State initialization** refers to the process of defining the initial state of a component when it is first rendered. This value can be a primitive (like a number or string), an object, an array, or even a function that returns a state value (for lazy initialization).
+
+- **Default value** means the value that the state holds before any updates are made.  
+
+**Example**  
+
+```jsx
+const [count, setCount] = useState(0); // Initializing state with a default value of 0
+``` 
+The count state is initialized to `0`, which means the counter will start from 0 when the component is first rendered. 
+
+## Default Value Types    
+
+1. **Primitive values** like numbers, strings, or booleans:
+
+```jsx
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+```   
+
+2. **Arrays**:
+
+```jsx
+const [items, setItems] = useState(["apple", "banana"]);
+```
+
+3. **Objects**:
+
+```jsx
+const [user, setUser] = useState({ name: "John", age: 30 });
+```  
+
+4. **Lazy Initialization (when the initial value is computed)**:
+
+```jsx
+const [count, setCount] = useState(() => calculateInitialCount());  
+```  
+
+This approach is useful when computing the initial value involves a complex calculation or when we want to defer the computation.
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/line.png)](#state_in_React)         
 
 # Code Description   
 
