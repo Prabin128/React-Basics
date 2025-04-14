@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background-color: #ecf0f3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #2c3e50;
+}
+
+/* Main container */
+.container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3498db;
+  margin: 0;
   text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h2 {
+  font-size: 1rem;
+  color: #e74c3c;
+  margin: 0;
 }
 
-@keyframes logo-spin {
+h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+/* Buttons */
+button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Fetched Posts section */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+ul li {
+  background-color: #f4f7f9;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+ul li:hover {
+  background-color: #eaf2f8;
+  transform: translateX(5px);
+}
+
+/* Section title */
+.container h3:nth-of-type(2) {
+  align-self: flex-start;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
