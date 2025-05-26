@@ -49,7 +49,8 @@ React will set the `initialValue` we pass to the **`useRef`** hook as the value 
 
 
 
-## Simple example 
+
+## Simple Example
 ```jsx
 function App() {
   const countRef = useRef(0);
@@ -66,7 +67,10 @@ function App() {
     </div>
   );
 }
-```  
+```       
+
+**What's Happening Here?**  
+
 - **`useRef`** allows us to create a **reference object** that persists across renders and holds a **mutable value**.
 - `useRef(0)` initializes `countRef` with a starting value of `0`.
 - `countRef` is an object: `{ current: 0 }`
@@ -78,6 +82,47 @@ function App() {
 - Even though the value changes, the component **does not re-render**, so the UI doesn't update.
 - This demonstrates that **`useRef`** can be used to store changing values without triggering React updates.  
 
+
 # Implementing the useRef hook  
 
-## 1: Accessing a DOM Element
+## 1: Accessing a DOM Element  
+
+**🔍 Overview**  
+In React, the useRef hook allows direct access to a DOM element. This can be useful for interacting with native DOM methods, such as setting focus to an input field when the component mounts.
+
+The example below demonstrates how to automatically focus a username input field when a login form loads.
+
+**Example: Auto-Focus on Username Input**  
+
+```jsx
+function Login() {
+
+  const focusRef = useRef(null); // Create a ref object with an initial value of null
+
+  useEffect(()=>{
+    // Focus the input element when the component mounts
+    focusRef.current.focus()
+    console.log(focusRef.current);
+    
+  },[])
+
+  return (
+    <div>
+      <form>
+        <input type="text" ref={focusRef} placeholder='Username'/>
+        <input type="text"  placeholder='Password'/>
+      </form>
+    </div>
+  )
+}
+```   
+
+- **`useRef(null)`**: creates a ref object, called **focusRef**, initialized with `null`.
+- **`ref{focusRef}`** :  attached to a input element with the `ref={inputRef}` attribute. It tells React to assign the actual DOM node of the input to inputRef.current after rendering.
+- **`useEffect(...)`**: Runs after the component mounts. Calls `.focus()` on the input element to set focus.
+- **`focusRef.current.focus()`**: Directly calls the native DOM `focus()` method to set the cursor inside the input.
+
+**📝 Use Case**  
+Automatically focusing on the username field enhances usability by allowing users to start typing immediately without clicking.
+
+ 
