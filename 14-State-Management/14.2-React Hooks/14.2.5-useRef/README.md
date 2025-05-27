@@ -126,3 +126,46 @@ function Login() {
 Automatically focusing on the username field enhances usability by allowing users to start typing immediately without clicking.
 
  
+## 2. Storing Mutable Values Without Causing Re-renders  
+
+**🔍 Overview**
+The **`useRef`** Hook in React can also store **mutable values** that persist across renders **without triggering a re-render** when updated. This makes it ideal for tracking values like previous state, timeouts, or counters that don't need to appear in the UI.  
+
+Unlike `useState`, changing a `useRef` value doesn’t cause the component to update. The `.current` property of the ref can be updated directly, and React will not re-render in response.  
+
+**Example: Tracking Render Count (Without Causing Extra Renders)**  
+```jsx
+import { useRef, useEffect, useState } from 'react';
+
+function RenderTracker() {
+  const [input, setInput] = useState('');
+  const renderCount = useRef(1); // Start at 1 since the component will render once on mount
+
+  useEffect(() => {
+    renderCount.current += 1; // Increment on every re-render
+  });
+
+  return (
+    <div>
+      <input 
+        value={input} 
+        onChange={(e) => setInput(e.target.value)} 
+        placeholder="Type something..." 
+      />
+      <p>Component has rendered {renderCount.current} times</p>
+    </div>
+  );
+}
+```  
+**How It Works**
+
+- `renderCount` is created with `useRef(1)`, which is not tied to the render cycle.
+- Inside `useEffect`, we increment `renderCount.current` every time the component renders.
+- This doesn't cause a re-render itself—it only tracks how many renders occurred.  
+
+**📝 Use Case**  
+This pattern is useful when you want to:
+
+- Track or cache values between renders (like timers, previous props, scroll positions).
+- Avoid unnecessary re-renders that would happen with useState.
+- Maintain non-UI state (like a mutable counter or ID reference) without affecting performance.
