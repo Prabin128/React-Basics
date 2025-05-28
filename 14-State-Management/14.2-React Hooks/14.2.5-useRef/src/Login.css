@@ -1,6 +1,7 @@
 /* Container styling */
 div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -31,4 +32,30 @@ input[type="text"]:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
+}
+
+/* Additional Input Styling */
+.extra-input{
+  margin-top: 20px;
+  padding: 12px 12px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect for the extra input */
+.extra-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  outline: none;
+}
+/* Paragraph styling */
+.render-counter {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+  font-style: italic;
 }
