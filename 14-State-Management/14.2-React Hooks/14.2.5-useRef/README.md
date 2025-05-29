@@ -131,9 +131,9 @@ function Login() {
 Automatically focusing on the username field enhances usability by allowing users to start typing immediately without clicking.
 
  
-## 2. Storing Mutable Values Without Causing Re-renders  
+## 2. Storing Mutable Values Without Causing Re-renders   
 
-**🔍 Overview**
+**🔍 Overview**  
 The **`useRef`** Hook in React can also store **mutable values** that persist across renders **without triggering a re-render** when updated. This makes it ideal for tracking values like previous state, timeouts, or counters that don't need to appear in the UI.  
 
 Unlike `useState`, changing a `useRef` value doesn’t cause the component to update. The `.current` property of the ref can be updated directly, and React will not re-render in response.  
@@ -182,8 +182,27 @@ This pattern is useful when you want to:
 - The **`useRef`** Hook can be used to keep **track of previous state values**.
 - This is because we are able to persist **`useRef`** values between renders.
 
-**Example: Tracking Previous State Value** 
+**Example: Tracking Previous State Value**   
 ```jsx
+function PreviousValue() {
+
+  const [count, setCount] = useState(0);
+  const prevCountRef = useRef(); // This will store the previous value
+
+  useEffect(() => {
+    prevCountRef.current = count; // Update the ref with the current count
+  }, [count]); // Run this effect whenever count changes
+
+  const prevCount = prevCountRef.current; // Access the previous count
+
+  return (
+    <div>
+      <p>Current: {count}</p>
+      <p>Previous: {prevCount}</p>
+      <button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+    </div>
+  );
+}
 ```
 
 ### 🔁 What Happens on First Render?  
@@ -281,4 +300,61 @@ So if you click again:
 This technique is useful when we want to:
 
 - Compare current and previous values for animations, conditionals, or debugging.
-- Track changes over time without causing re-renders.  
+- Track changes over time without causing re-renders.   
+
+
+
+# 🔁 useRef vs 🌀 useState – React Hook Differences  
+
+While both useRef and useState can store values, they behave differently:
+  - useRef does not trigger re-renders when updated, making it ideal for persisting values between renders.
+  - useState triggers re-renders whenever the state value is updated.
+  - Use useRef for storing references and preserving values, and useState for UI updates.  
+  
+**1. Purpose**  
+
+**`useState`**: Used to store and manage ***stateful data*** that triggers re-renders on updates.
+
+**`useRef`**: Used to persist ***mutable values*** that do not trigger re-renders when changed. Also used to reference DOM elements.
+
+**2. Triggers Re-render?**  
+
+**`useState`**: ✅ Yes – Updating state causes the component to re-render.
+
+**`useRef`** ❌ No – Updating .current does not trigger re-render.
+
+**3. Use Cases**
+**`useState`**
+
+Form inputs
+
+Toggle UI states (e.g., modal open/close)
+
+Data fetched from APIs
+
+**`useRef`**
+
+Accessing DOM nodes `(ref={myRef})`
+
+Storing timers, intervals, or previous values
+
+Preventing unnecessary re-renders
+
+**4. Example Syntax**  
+
+```jsx
+// useState example
+const [count, setCount] = useState(0);
+setCount(count + 1); // re-renders component
+```  
+
+```jsx
+// useRef example
+const inputRef = useRef(null);
+inputRef.current.focus(); // does NOT re-render component
+```  
+
+**5. Stored Value**  
+
+**`useState`** Value is managed by React and survives re-renders.
+**`useRef`** .current is a mutable container that persists across renders.
