@@ -45,6 +45,8 @@ When we use useRef, it gives us back an object that looks like this:
 - We can **change** `current` later if we want.
 - React will **not re-render** the component when we change `current`.
 
+💡 Also, the **object returned by useRef remains the same between renders**. This stability makes it ideal for storing data that we want to **persist across renders** without triggering a re-render or being reset like local variables inside a function.
+
 React will set the `initialValue` we pass to the **`useRef`** hook as the value of the `current` property of the returned `ref` object. As an example, if the `initialValue` is the boolean value `true`, then the `ref` object returned by the **`useRef`** hook will be `{ current: true }`. If we don't pass an initial value, the `current` property will be `undefined`.
 
 
@@ -118,9 +120,12 @@ function Login() {
 ```   
 
 - **`useRef(null)`**: creates a ref object, called **focusRef**, initialized with `null`.
-- **`ref{focusRef}`** :  attached to a input element with the `ref={inputRef}` attribute. It tells React to assign the actual DOM node of the input to inputRef.current after rendering.
 - **`useEffect(...)`**: Runs after the component mounts. Calls `.focus()` on the input element to set focus.
 - **`focusRef.current.focus()`**: Directly calls the native DOM `focus()` method to set the cursor inside the input.
+- **`ref{focusRef}`** :  attached to a input element with the `ref={inputRef}` attribute. It tells React to assign the actual DOM node of the input to inputRef.current after rendering.
+
+**`⚠️ Note:`** The `ref.current` value for DOM elements is `null` during the initial render. It only gets populated **after the component mounts**, so if we try to access it immediately during rendering, it won’t work.
+✅ That’s why we typically access or manipulate DOM elements inside a `useEffect` with an empty dependency array `[]` to ensure it runs **after the DOM is ready**.
 
 **📝 Use Case**  
 Automatically focusing on the username field enhances usability by allowing users to start typing immediately without clicking.
@@ -137,7 +142,7 @@ Unlike `useState`, changing a `useRef` value doesn’t cause the component to up
 ```jsx
 import { useRef, useEffect, useState } from 'react';
 
-function RenderTracker() {
+function TrackRenderCount() {
   const [input, setInput] = useState('');
   const renderCount = useRef(1); // Start at 1 since the component will render once on mount
 
@@ -169,3 +174,111 @@ This pattern is useful when you want to:
 - Track or cache values between renders (like timers, previous props, scroll positions).
 - Avoid unnecessary re-renders that would happen with useState.
 - Maintain non-UI state (like a mutable counter or ID reference) without affecting performance.
+
+
+## 3: Tracking State Changes (Storing previous State with useRef)   
+**🔍 Overview**    
+- React does not provide a built-in way to get the previous state or props. However, with the help of **`useRef`**, we can store the previous value and update it during each render cycle — without triggering re-renders. 
+- The **`useRef`** Hook can be used to keep **track of previous state values**.
+- This is because we are able to persist **`useRef`** values between renders.
+
+**Example: Tracking Previous State Value** 
+```jsx
+```
+
+### 🔁 What Happens on First Render?  
+
+**1. Component mounts (initial render):**
+
+```jsx
+const [count, setCount] = useState(0);
+const prevCountRef = useRef();  // current = undefined initially
+```
+- `count` is initialized to `0`.
+- `prevCountRef.current` is **undefined**, because we haven’t set it yet.
+
+**2. useEffect runs:**
+
+```jsx
+useEffect(() => {
+  prevCountRef.current = count;
+}, [count]);
+```
+- Since `count = 0, prevCountRef.current = 0`.
+- Now the **previous value is "0"**, ready for the next render.
+
+**🖱 What Happens When We Click the Button?**
+```jsx
+<button onClick={() => setCount((prev) => prev + 1)}>Increment</button>
+``` 
+
+***🧠 Step-by-Step Lifecycle After Button Click***
+
+**🟡 1. setCount() is called**
+
+```jsx
+setCount((prev) => prev + 1)
+```
+- **React schedules a re-render** with `count = count + 1`.
+
+**🔁 2. Component re-renders**
+
+**React calls the component function again:**  
+```jsx
+const [count, setCount] = useState(1); // count is now 1
+const prevCountRef = useRef();         // this returns the **same object** as before
+```
+- **`useRef()`** **does not create a new object**, it gives us the same `prevCountRef` object from the last render.   
+ 
+**🟠 3. Code after render is evaluated:** 
+
+```jsx
+const prevCount = prevCountRef.current;
+```
+- At this moment:
+
+  - `count = 1`
+  - `prevCountRef.current = 0` ← this is the value from previous render, which we saved in the last `useEffect`.
+
+So:
+
+```js
+<p>Current: 1</p>
+<p>Previous: 0</p>
+```
+
+This is **exactly what we wan**t — the previous value!  
+
+**🟢 4. useEffect runs (after the render is committed)**  
+
+```jsx
+useEffect(() => {
+  prevCountRef.current = count;
+}, [count]);
+```  
+
+Now, since `count` has changed to `1`, the effect runs and updates the ref:
+
+```jsx
+prevCountRef.current = 1;
+```  
+
+Now the previous value is updated and ready for **next render**.
+
+
+**🔄 This Cycle Repeats**
+
+So if you click again:
+
+- `count` becomes `2`
+- The component re-renders.
+- `prevCountRef.curren`t is still `1` → displayed as "Previous".
+- Then `useEffect` updates it to `2` after render.
+
+
+
+**📝 Use Case**
+This technique is useful when we want to:
+
+- Compare current and previous values for animations, conditionals, or debugging.
+- Track changes over time without causing re-renders.  
