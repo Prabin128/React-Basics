@@ -46,4 +46,15 @@ Show the `searchTerm` (state) and `prevSearchRef.current` (ref) on the screen as
 ### 💡 Bonus Ideas (optional):
 
 - Add a history list of all searched terms using an array.
-- Store the previous 3 or 5 searches instead of just one using an array in the ref.
+- Store the previous 3 or 5 searches instead of just one using an array in the ref.  
+
+**✅ Goal:**  
+1. Keep a history of all searched terms. 
+2. Store only the last 3 or 5 search terms using an array in a ref.  
+
+**✅ Step-by-Step Implementation:**  
+We'll do this in two parts using a single ref:  
+
+1. Use `useRef([])` to store an array of previous search terms  
+2. Push each new search into the array  
+3. Keep only the last 3 (or 5) items  
