@@ -237,14 +237,14 @@ This runs:
 )}
 ```  
 
-**🔹 {isOpen && (...)} — What does it do?**
+**🔹 {isOpen && (...)} — What does it do?**  
 This uses **short-circuit evaluation** to conditionally render the dropdown:
 
 - isOpen is a boolean state (true/false).
 - If isOpen is true, the code inside the parentheses (...) is rendered.
 - If isOpen is false, nothing is rendered.
 
-So, this means:
+So, this means:  
     **Only render the dropdown when it's open.**
 
 **🔹 <div ref={dropdownRef} ... > — What is this?**
@@ -256,7 +256,7 @@ So, this means:
 - style={{ ... }}:
     - Adds inline CSS styles to the dropdown. 
 
-**🔹 Inner <div className="dropdown-content">**
+**🔹 Inner `<div className="dropdown-content">`**
 This is just a child container where you'd typically place your dropdown items, like:
 
 - Links
