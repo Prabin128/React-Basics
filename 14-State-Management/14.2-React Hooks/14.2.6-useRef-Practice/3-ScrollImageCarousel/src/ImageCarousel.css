@@ -1,0 +1,42 @@
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+
+.carousel-image {
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  scroll-snap-align: start;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.nav-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .nav-button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
