@@ -25,14 +25,14 @@ function VideoPlayer() {
   }
 
   return (
-    <div>
-      <video width= '500' height= '500' ref={videoRef} onEnded={videoEnded}>
+    <div className='video-player-container'>
+      <video className='video-element' ref={videoRef} onEnded={videoEnded}>
         <source src= {videoSource}/>
       </video>
       <div>
-        <button onClick={handleToogle}>
+        <button className='play-button' onClick={handleToogle}>
           {
-            isPlaying? 'Pause' :'Play'
+            isPlaying ? '⏸ Pause' : '▶️ Play'
           }
       </button>
       </div>
