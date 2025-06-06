@@ -1,34 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ThemeContext from './context/ThemeContext'
+import Page from './components/Page'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState("dark");
+  
+  // Provide both theme and setTheme
+  const contextValue = { theme, setTheme };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    // Step 2: Provide the context
+    <ThemeContext.Provider value={contextValue}>
+      <div
+        style={{
+          background: theme === "dark" ? "#222" : "#fff",
+          color: theme === "dark" ? "#fff" : "#000",
+          minHeight: "100vh",
+          padding: "20px",
+        }}
+      >
+        <h1>App Component</h1>
+        <Page />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </ThemeContext.Provider>
   )
 }
 
