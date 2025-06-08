@@ -10,23 +10,24 @@ To say it simply:
 # What is Context in React (Basic Idea)?  
 
 - Think of **Context** like a **global storage** — a shared place where we keep some data that **many components** might need (e.g., theme, language, logged-in user info). 
-- Context provides a way to **pass data through the component tree** without having to pass props down manually at every level. It's like a global variable, but scoped to a tree of React component.
+- Context provides a way to **pass data through the component tree** without having to pass props down manually at every level. It's like a global variable, but scoped to a tree of React component.  
+
 **✅ Common use cases:**
 
-- Theme (light/dark)
-- Authentication status
-- Language preferences
-- Shared state or config
+  - Theme (light/dark)
+  - Authentication status
+  - Language preferences
+  - Shared state or config
 
 **✅ Example (Before Context):**
 ```jsx
 <App theme="dark" />
 ```
 Inside `<App>` we pass the theme to `<Header>`, `<Header>` passes to `<Navbar>`, then to `<Button>`... and so on. This is called **prop drilling.**
-
 Too much hassle.
 
-**✅ Example (With Context + useContext):**  
+**✅ Example (With Context + useContext):**   
+
 Create a context to store `theme = dark`, then ANY component can directly read it. No need to pass it step-by-step!
 
 # Why Use useContext? (in detail)  
@@ -88,7 +89,9 @@ root.render(<App />);
 - This is **prop drilling** — and it becomes more painful as our app grows.
 
 **✅ Solution: Using useContext**  
-We can eliminate this problem using React's Context API.  
+We can eliminate this problem using React's Context API.   
+
+
 **Example 2: Solving with useContext**  
 ```jsx
 // App.jsx
@@ -279,11 +282,90 @@ The useContext hook allows to consume values from a React Context, enabling easy
 - Data that changes frequently (consider state management libraries instead)  
 
 
+
+# Advanced Concepts  
+
+**1. Providing Both Value and Setter**
+
+To allow child components to read and update the context, **pass an object as value**:  
+
+```jsx
+<ThemeContext.Provider value={{ theme, setTheme }} /> 
+```  
+
+And consume like this:  
+```jsx
+const { theme, setTheme } = useContext(ThemeContext);
+
+<button onClick={() => setTheme("light")}>Light Mode</button>
+```  
+
+**2. Creating a Custom Context Hook: Best Practice**
+
+To keep code clean and consistent:
+```jsx
+// theme-context.js
+import { createContext, useContext } from "react";
+
+const ThemeContext = createContext();
+export const useTheme = () => useContext(ThemeContext);
+export default ThemeContext;
+```  
+Now in any component:  
+```jsx
+const { theme, setTheme } = useTheme();
+```  
+✅ Cleaner import  
+✅ Reusable pattern  
+
+**3. Default Value Behavior**
+
+If no `<Provider>` wraps our component, useContext will return the default value:
+```jsx
+const MyContext = createContext("default");
+const value = useContext(MyContext); // returns "default" if no provider
+```  
+
+**4. Re-renders and Performance**
+
+- Any value change in `<Provider value={...}>` ***causes all components consuming that context to re-render***.
+- Even if the component doesn’t directly use the part of the value that changed.
+- For frequent updates (e.g., keystrokes), prefer `useState` or `useReducer`.   
+
+**5. Nested Providers Hell**
+
+Using too many nested providers can get messy:  
+
+```jsx
+<AuthContext.Provider>
+  <ThemeContext.Provider>
+    <LangContext.Provider>
+      <App />
+    </LangContext.Provider>
+  </ThemeContext.Provider>
+</AuthContext.Provider>
+```  
+✅ Solution: Create a single wrapper component:   
+
+```jsx
+function AppProviders({ children }) {
+  return (
+    <AuthContext.Provider value={...}>
+      <ThemeContext.Provider value={...}>
+        <LangContext.Provider value={...}>
+          {children}
+        </LangContext.Provider>
+      </ThemeContext.Provider>
+    </AuthContext.Provider>
+  );
+}
+```  
+
 ## ⚠️ Important Notes
 - `useContext` will cause a component to **re-render** whenever the context value changes.
 - We can only use `useContext` **inside functional components or other hooks**.  
 
-## ⚠️ 6. Potential Pitfalls   
+## ⚠️ Potential Pitfalls   
 **1. Re-rendering**  
 All components using `useContext` will **re-render** when the value changes — even if they don’t use the changed part of the context.  
 
@@ -302,4 +384,4 @@ If we use too many different contexts, your app may look like this:
   </AuthContext.Provider>
 </ThemeContext.Provider>
 ```  
-**Solution**: Combine them into a single provider if possible or use a custom `AppProvider`.
+**Solution**: Combine them into a single provider if possible or use a custom `AppProvider`.    
