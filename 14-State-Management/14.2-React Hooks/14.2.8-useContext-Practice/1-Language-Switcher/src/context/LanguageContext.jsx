@@ -1,7 +1,7 @@
-import { createContext } from "react"; 
+import { createContext, useState } from "react"; 
 
 // Create the context
-const LanguageContext = createContext();
+export const LanguageContext = createContext();
 
 // Create the provider component
 const LanguageProvider = ({children})=>{
@@ -14,4 +14,4 @@ const LanguageProvider = ({children})=>{
     )
 }
 
-export default {LanguageContext, LanguageProvider}
+export default LanguageProvider
