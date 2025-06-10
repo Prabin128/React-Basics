@@ -1,19 +1,10 @@
-// 3. Create the Cart Context
-
-// Inside context/CartContext.jsx:
-
-//     Create the context.
-//     Create a provider component.
-//     Use useState to manage cartItems (an array).
-//     Add functions: addToCart, removeFromCart, clearCart.
-//     Pass both cartItems and functions as values via the context provider.
-import { createContext } from "react"; 
+import { createContext,useContext, useState } from "react"; 
 
 //Create Context
 export const CartContext = createContext()
 
 //create provider component 
-const CartProvider = ()=>{
+const CartProvider = ({children})=>{
 
     // Use useState to manage cartItems (an array).
     const [cartItems, setCartItems] = useState([]);
@@ -36,13 +27,18 @@ const CartProvider = ()=>{
         })
     };
 
-    // Function to remove a product from the cart (decrease quantity or remove entirely)
+    // Function to remove a product from the cart (decrease quantity or removes the item if quantity is 1)
     const removeFromCart = (product) =>{
         setCartItems((prevItems)=>{
+
+            //Find the existing item in the cart that matches the product ID
             const existingItems = prevItems.find((item)=>item.id === product.id);
+
+            //If the item quantity is 1, remove it completely from the cart
             if(existingItems.quantity === 1){
                 return prevItems.filter((item) => item.id !== product.id)
             }else{
+                //If quantity is more than 1, reduce it by 1
                 return prevItems.map((item)=>(
                     item.id === product.id ? {...item, quantity: item.quantity - 1} : item
                 ));
@@ -59,7 +55,7 @@ const CartProvider = ()=>{
     }
 
     const getTotalPrice = (product) =>{
-        return cartItems.reduce((total,item)=> total +item.price * item.quantity, 0);
+        return cartItems.reduce((total,item)=> total +item.price * item.quantity, 0).toFixed(2);
     }
 
     return(
@@ -76,6 +72,10 @@ const CartProvider = ()=>{
             {children}
         </CartContext.Provider>
     )
+};
+
+export const useCart = () => {
+  return useContext(CartContext);
 };
 
 export default CartProvider;
