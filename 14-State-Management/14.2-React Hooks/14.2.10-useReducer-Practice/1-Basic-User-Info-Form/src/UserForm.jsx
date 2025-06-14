@@ -32,13 +32,15 @@ function UserForm() {
   const handleAge = (e) => {
     dispatch({type: 'age', payload: e.target.value});
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+
     console.log('Submitted:', state);
     setIsSubmitted(true);
   }
-  const handleReset = () => {
+  const handleReset = (e) => {
+
     dispatch({type: 'reset'});
-    setIsSubmitted(true);
+    setIsSubmitted(false);
   }
 
   return (
@@ -60,8 +62,8 @@ function UserForm() {
           />
 
           <div className='button-group'>
-            <button className='btn submit-btn' onClick={handleSubmit}>Submit</button>
-            <button className='btn submit-btn' onClick={handleReset}>Reset</button>
+            <button type='button' className='btn submit-btn' onClick={handleSubmit}>Submit</button>
+            <button type='button' className='btn submit-btn' onClick={handleReset}>Reset</button>
           </div>
 
           {isSubmitted && (
