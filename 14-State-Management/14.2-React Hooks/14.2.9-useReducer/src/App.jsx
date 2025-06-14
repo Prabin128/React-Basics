@@ -1,33 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useReducer } from 'react'
+
+// 1. Define Initial State
+const initialState = {count: 0}
+
+// 2. Create the Reducer Logic
+const reducer =(state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return {...state, count: state.count + 1 };
+    case 'decrement':
+      return {...state, count: state.count - 1 };    
+    case 'set':
+      return{...state, count: action.payload};
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  // useReducer hook: [state, dispatch]
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+   // Event Handlers
+  function handleIncrement() {
+    dispatch({type: 'increment'})
+  }
+
+  function handleDecrement() {
+    dispatch({type: 'decrement'})
+  }
+
+  function handlePayload(){
+    dispatch({type: 'set', payload: 100})
+  }
+
+   // 3. Returning the JSX
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Count:{state.count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={handlePayload}>Set To 100</button>
+
     </>
   )
 }

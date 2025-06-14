@@ -7,7 +7,7 @@
 - It allows us to manage state using a reducer function.
 - It accepts a **reducer** function as its first parameter and the **initial state** as the second. 
 - useReducer **returns an array** that holds the current state value and a dispatch function to which we can pass an action and later invoke it. 
-- It is useful when the state transitions depend on previous state values or when you need to handle actions that can update the state differently.
+- It is useful when the state transitions depend on previous state values or when we need to handle actions that can update the state differently.
 
 ## Syntax of useReducer  
 ```jsx
@@ -84,4 +84,269 @@ We could also use `if` statements, but `switch` is cleaner and more readable whe
 ***✅ What is `payload`?***  
 The `payload` is **any additional data** needed to perform the update.
 - If we're just incrementing a counter, we might not need a payload.
-- If we're setting the counter to a specific number, we'll need to pass that number through the `payload`.
+- If we're setting the counter to a specific number, we'll need to pass that number through the `payload`.  
+
+
+# Getting Started with useReducer  
+Before diving into building anything, the first step is to import the hook from the React package:
+
+```jsx
+import { useReducer } from "react";
+```
+Next, we'll use the hook inside our component:
+
+```jsx
+export default function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    // JSX will go here
+  );
+}
+```
+Here, `useReducer` takes in two main arguments:  
+- `reducer`: a function that determines how state should change in response to an action.
+- `initialState`: the default state value when the component loads for the first time.  
+
+## Breaking Down the Reducer Function
+The heart of `useReducer` lies in the **reducer function**. This function controls how the state is updated based on dispatched actions. It takes two parameters:  
+- `state`: the current state
+- `action`: an object describing the change to be made
+
+Here's a sample skeleton of a reducer:
+```jsx
+function reducer(state, action) {
+  // logic to return new state based on action type
+}
+```
+The `action` is typically an object with a `type` property. It can also contain other properties that describe the update more specifically.  
+
+## Building a Simple Counter  
+To see everything in action, let’s build a basic counter application with increment and decrement functionality. We'll use the reducer to manage a simple state object with a `count` property.
+
+**1. Define Initial State**
+```jsx
+const initialState = { count: 0 };
+```  
+
+**2. Create the Reducer Logic**  
+
+```jsx
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + 1 };
+    case "decrement":
+      return { ...state, count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+```
+In this reducer: 
+- The `increment` case increases the `count` by 1.
+- The `decrement` case reduces the `count` by 1.
+- The `default` case simply returns the existing state in case of an unknown action.  
+
+### Dispatch Function and Event Handlers  
+The `dispatch` function is used to trigger state changes. It accepts an action object, which the reducer uses to determine how to update the state.
+
+Let’s define our event handlers:
+```jsx  
+function handleIncrement() {
+  dispatch({ type: "increment" });
+}
+
+function handleDecrement() {
+  dispatch({ type: "decrement" });
+}
+```
+Each handler dispatches a specific action, and the reducer handles that action appropriately.  
+
+### Returning the JSX
+With the reducer and event handlers in place, we can now structure the UI of our counter app:
+
+```jsx
+return (
+  <>
+    <h1>Count: {state.count}</h1>
+    <button onClick={handleIncrement}>Increment</button>
+    <button onClick={handleDecrement}>Decrement</button>
+  </>
+);
+```
+Each button triggers a dispatch, and the UI updates based on the new state returned from the reducer.  
+
+### How It Works Behind the Scenes
+When a button is clicked:
+
+1. The corresponding `dispatch` function is called.
+2. This triggers the `reducer` function with the current state and dispatched action.
+3. The reducer processes the action and returns the new state.
+4. React re-renders the component using the updated state.
+
+At the moment `dispatch` is called, the current state is still the previous one — the update will take effect on the next render cycle. To visualize this better, add a console log inside the reducer:
+
+```jsx
+function reducer(state, action) {
+  console.log("Current State:", state);
+  console.log("Dispatched Action:", action);
+
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + 1 };
+    case "decrement":
+      return { ...state, count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+```
+This will show how state changes step-by-step as actions are dispatched.  
+
+**Visual Flow Summary**
+```sql
+User Clicks Button
+       ↓
+Function dispatches Action
+       ↓
+Reducer receives Action + Current State
+       ↓
+Reducer returns New State
+       ↓
+Component re-renders with Updated Count
+```  
+## Why Use useReducer?
+So when should we reach for `useReducer` over `useState`?
+
+- **Complex state logic**: When updates depend on previous state or involve multiple sub-values.
+- **Centralized logic**: All update logic lives in one function, improving code organization.
+- **Predictability**: The state transitions are easy to trace through action types and reducer conditions.
+
+
+## Complete Code   
+
+```jsx
+import './App.css'
+import { useReducer } from 'react'
+
+// 1. Define Initial State
+const initialState = {count: 0}
+
+// 2. Create the Reducer Logic
+const reducer =(state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return {...state, count: state.count + 1 };
+    case 'decrement':
+      return {...state, count: state.count - 1 };    
+    default:
+      return state;
+  }
+}
+
+function App() {
+
+  // useReducer hook: [state, dispatch]
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+   // Event Handlers
+  function handleIncrement() {
+    dispatch({type: 'increment'})
+  }
+
+  function handleDecrement() {
+    dispatch({type: 'decrement'})
+  }
+
+   // 3. Returning the JSX
+  return (
+    <>
+      <h1>Count:{state.count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+    </>
+  )
+}
+
+export default App
+```  
+
+**🟢 First Render:**  
+
+When our app runs for the first time:
+
+- React executes `useReducer(reducer, initialState)` → gives us `{ count: 0 }` as the state.
+- Our JSX displays: `Count: 0`  
+
+**🟡 What Happens on Button Click?**    
+
+Let’s say the user clicks the Increment button:
+
+**1. `handleIncrement()` runs**:
+```jsx
+dispatch({type: 'increment'})
+```
+We're telling React:
+
+`"Dispatch an action to the reducer with type 'increment'"`
+
+**2. React Calls the Reducer**  
+React internally does:
+
+```jsx
+newState = reducer(currentState, action)
+```
+So:
+
+```jsx
+reducer({ count: 0 }, { type: 'increment' })
+// returns => { count: 1 }
+```  
+
+**3. React Sets the New State**  
+
+React sees that the state changed from `{ count: 0 }` to `{ count: 1 }`. So it:
+
+- Updates the internal state
+- Re-runs our component to reflect the new state
+
+**4. Our Component Re-renders**  
+This time:
+
+```jsx
+const [state, dispatch] = useReducer(...) 
+```  
+
+returns:
+
+```jsx
+state = { count: 1 }
+```
+So the JSX becomes:
+
+```html
+<h1>Count: 1</h1>
+```
+That’s how the UI updates.
+
+
+**✅ Why action.payload in set?**  
+Because we're not adding or subtracting — we're **replacing** the current value with a **new one** that comes from **outside**, like this:
+
+```jsx
+case 'set':
+  return { ...state, count: action.payload }
+```
+Here:
+
+- We **don’t care what the previous count was**
+- We just want to set it to whatever value is inside `action.payload` (e.g., `100`)
+
+**🎯 Simple Rule of Thumb:**   
+
+**Use** `state.` **when...**
+→ We need the **existing value** to calculate the new one (like incrementing, toggling, etc.)
+
+**Use** `action.` **when...**
+→ We need **external data** passed through `dispatch` to perform the update.
