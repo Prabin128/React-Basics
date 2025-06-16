@@ -14,10 +14,11 @@ function TodoItem({ todo, dispatch }) {
   };
 
   return (
-    <li>
+    <li className="todo-item">
       <input
         type="checkbox"
         checked={todo.completed}
+        className="todo-checkbox"
         onChange={() =>
           dispatch({ type: 'TOGGLE_TODO', payload: todo.id })
         }
@@ -27,24 +28,27 @@ function TodoItem({ todo, dispatch }) {
         <>
           <input
             type="text"
+            className="todo-edit-input"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
           />
-          <button onClick={handleUpdate}>Save</button>
+          <button className="btn save-btn" onClick={handleUpdate}>Save</button>
         </>
       ) : (
-        <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+        <span className={`todo-text ${todo.completed ? 'completed' : ''}`}>
           {todo.text}
         </span>
       )}
 
-      <button onClick={() => dispatch({ type: 'DELETE_TODO', payload: todo.id })}>
-        🗑️
-      </button>
+      <div className="todo-actions">
+        <button className="btn delete-btn" onClick={() => dispatch({ type: 'DELETE_TODO', payload: todo.id })}>
+          🗑️
+        </button>
 
-      {!isEditing && (
-        <button onClick={() => setIsEditing(true)}>✏️</button>
-      )}
+        {!isEditing && (
+          <button className="btn edit-btn" onClick={() => setIsEditing(true)}>✏️</button>
+        )}
+      </div>
     </li>
   );
 }

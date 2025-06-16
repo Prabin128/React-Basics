@@ -8,7 +8,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, []);
 
   return (
-    <div className="App"> 
+    <div className="app"> 
       <h1>Todo List Manager</h1>
       <TodoForm dispatch = {dispatch}/>
       <TodoList todos = {todos} dispatch = {dispatch} />
