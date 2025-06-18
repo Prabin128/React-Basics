@@ -77,4 +77,17 @@ navigate("/dashboard");
 - Use `<Link>` or `<NavLink>` to allow navigation **without refreshing the page**.  
 ```jsx
 <Link to="/about">About</Link>
-```
+```  
+
+**Summary**  
+
+| Feature                | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| **Dynamic Routing**    | Routes are rendered as components, allowing runtime route generation.       |
+| **Declarative Routing**| Use `<Routes>` and `<Route>` components to map URLs to views.               |
+| **Programmatic Navigation** | Navigate using `useNavigate()` hook for redirection after events.       |
+| **Nested Routes**      | Compose multiple route levels for complex UIs.                              |
+| **404 Handling**       | Render a fallback component for unmatched or invalid routes.                |
+| **SPA Optimization**   | No full-page reloads, ensuring fast and smooth navigation.                  |
+
+---
