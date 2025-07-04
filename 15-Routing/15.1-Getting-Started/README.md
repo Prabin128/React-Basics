@@ -90,4 +90,106 @@ navigate("/dashboard");
 | **404 Handling**       | Render a fallback component for unmatched or invalid routes.                |
 | **SPA Optimization**   | No full-page reloads, ensuring fast and smooth navigation.                  |
 
+---  
+
+# Server-Side vs. Client-Side Routing in React
+
+Routing determines how navigation between different pages/views in a web application is handled. In React applications, there are two main approaches:
+
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/serverside_vs_clientside.png)](#Routing)   
+
+
+## 🚀 Client-Side Routing
+
+### 🔧 How it Works:
+
+- Routing is handled entirely by JavaScript in the browser  
+- When a user clicks a link, React intercepts the request and updates the UI without a full page reload  
+- Only the necessary components are re-rendered  
+
+### ✅ Key Characteristics:
+
+- ⚡ Faster transitions between views (no full page reload)  
+- 💡 Smoother user experience (feels more like a native app)  
+- 📄 The server only sends a single HTML page initially  
+- 🔄 Subsequent routing is managed by **React Router** (or similar libraries)  
+
+
+
+## 🖥️ Server-Side Routing
+
+### 🔧 How it Works:
+
+- Traditional approach where each URL change requests a new page from the server  
+- The server processes the request and sends back a complete HTML page  
+- Full page reload occurs with each navigation  
+
+### ✅ Key Characteristics:
+
+- 🌐 Each route results in a new HTTP request to the server  
+- 🧠 The server is responsible for rendering the appropriate view  
+- 📃 The browser receives and displays a complete HTML document each time  
+
 ---
+
+## 🔁 Hybrid Approaches
+
+Modern frameworks like **Next.js** offer hybrid solutions:
+
+- 🛠 Initial page load is server-rendered (great for SEO)  
+- 🚀 Subsequent navigation uses client-side routing (smooth UX)  
+- 🔄 This is known as **universal** or **isomorphic** rendering  
+
+---
+
+## 📌 When to Use Each
+
+### Use **Client-Side Routing** when:
+
+- 🧩 Building interactive web applications  
+- 🔄 Maintaining state between views is important  
+- 📱 You want an app-like feel  
+
+### Use **Server-Side Routing** when:
+
+- 📈 SEO is critical and you can't use SSR  
+- 📚 Your app has mostly static content  
+- 🚫 You need to support browsers with JavaScript disabled  
+
+---
+
+> 🛠 In modern React development, **client-side routing** (often combined with **server-side rendering** for the initial load) is the most common approach for building **SPAs (Single Page Applications)**.
+
+
+## 🔑 Key Concepts
+
+Before we jump into coding, it's important to get familiar with some foundational terms used in routing with React:
+
+- **Route**: Represents the connection between a specific URL path and the component that should be displayed for it. When the browser navigates to a certain path, the matching component is shown.
+
+- **Router**: Acts as the core system that handles routing logic in the app. For web-based React apps, `BrowserRouter` is commonly used, while `HashRouter` is better suited for static file hosting environments.
+
+- **Nested Routes**: These allow you to define child routes inside parent routes. This is especially helpful for layouts or pages that share common UI components (like headers or sidebars).
+
+- **Link**: A special component from React Router that works like a regular anchor (`<a>`) tag, but without causing a full page reload. It updates the URL and navigates within the app seamlessly.
+
+
+## 🔧 Installation
+React makes use of an external library to handle routing; however, before we can implement routing with that library, we must first install it in our project, which is accomplished by running the following command in your terminal (within our project directory):
+```sh 
+npm install react-router-dom
+```   
+After successfully installing the package, we can set up and configure the React router for our project.  
+
+**📁 3. Basic Folder Structure**
+```sh
+/my-app
+  /src
+    /pages
+      Home.jsx
+      About.jsx
+    /components
+    App.js
+    index.js
+```   
+## 🚀 4. Getting Started with Routing
