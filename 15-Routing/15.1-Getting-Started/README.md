@@ -181,7 +181,7 @@ npm install react-router-dom
 ```   
 After successfully installing the package, we can set up and configure the React router for our project.  
 
-**📁 3. Basic Folder Structure**
+## 📁 Basic Folder Structure  
 ```sh
 /my-app
   /src
@@ -192,4 +192,276 @@ After successfully installing the package, we can set up and configure the React
     App.js
     index.js
 ```   
-## 🚀 4. Getting Started with Routing
+## 🚀 4. Getting Started with Routing  
+
+**Step 1: Setup BrowserRouter**  
+
+In  `index.js` or `main.jsx`:  
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+```  
+
+**Step 2: Define Routes in `App.js`**   
+```jsx
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  );
+}
+
+export default App;
+```  
+
+## 🧭 Core Components of React Router   
+
+**🔹 `<BrowserRouter>`**
+
+Wraps our app and enables routing functionality.  
+
+**🔹 `<Routes>`**  
+
+A container that holds all our routes.
+
+**🔹 `<Route>`**
+
+Defines the route’s path and the component to render.
+```jsx
+<Route path="/contact" element={<Contact />} />
+```  
+**🔹 `<Link>`**
+
+Used to navigate without reloading the page.
+```jsx
+import { Link } from 'react-router-dom';
+
+<Link to="/">Go to Home</Link>
+```  
+
+**🔹`<NavLink>`**  
+Same as `<Link>`, but provides active styling for the current route.  
+```jsx
+<NavLink 
+  to="/about" 
+  className={({ isActive }) => isActive ? "active" : ""}
+>
+  About
+</NavLink>
+```
+Use `NavLink` when building navigation menus and we need to visually indicate which page is active. 
+
+## Navigating Programmatically  
+
+**🔹 `useNavigate()` Hook**  
+```jsx
+import { useNavigate } from 'react-router-dom';
+
+function MyComponent() {
+  const navigate = useNavigate();
+
+  const goToAbout = () => {
+    navigate('/about');
+  };
+
+  return <button onClick={goToAbout}>Go to About</button>;
+}
+```  
+
+## 🧩 Route Parameters
+
+Use `:` to define a dynamic parameter.  
+**🔸 Route definition:**
+```jsx
+<Route path="/user/:id" element={<User />} />
+```  
+
+**🔸 Accessing the param:**
+```jsx
+import { useParams } from 'react-router-dom';
+
+function User() {
+  const { id } = useParams();
+  return <h1>User ID: {id}</h1>;
+}
+```  
+
+## 🧮 Query Parameters  
+
+React Router doesn't handle query params natively—we use `useLocation()`.
+
+```jsx
+import { useLocation } from 'react-router-dom';
+
+function Search() {
+  const { search } = useLocation();
+  const query = new URLSearchParams(search);
+  const term = query.get('term');
+
+  return <h2>Search Term: {term}</h2>;
+}
+```  
+
+## 📚 Nested Routes  
+
+**App.jsx:**   
+```jsx
+<Route path="/dashboard" element={<Dashboard />}>
+  <Route path="analytics" element={<Analytics />} />
+  <Route path="reports" element={<Reports />} />
+</Route>
+```  
+
+In `Dashboard.js`:  
+```jsx
+import { Outlet } from 'react-router-dom';
+
+function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <Outlet /> {/* Nested children will render here */}
+    </div>
+  );
+} 
+```    
+**Index Route (Default child route)**  
+
+Use `index` to define the default child when no path is matched/specified.
+
+```jsx
+<Route path="/dashboard" element={<Dashboard />}>
+  <Route index element={<DashboardHome />} />
+  <Route path="analytics" element={<Analytics />} />
+</Route>
+```
+This means when a user visits `/dashboard`, the `DashboardHome` component is shown by default.
+
+## 🧱 Layout Routes   
+**Purpose**: When we have a common UI (like sidebar/header/footer), wrap it using a layout route: 
+
+```jsx
+<Route path="/" element={<MainLayout />}>
+  <Route index element={<Home />} />
+  <Route path="about" element={<About />} />
+</Route>
+```  
+
+`MainLayout.jsx`:
+
+```jsx
+function MainLayout() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+}
+```  
+This structure allows nested routes to inherit the layout automatically.  
+
+## 🔐 Protected Routes (Authentication)
+```jsx
+function PrivateRoute({ children }) {
+  const isAuth = localStorage.getItem('isLoggedIn');
+  return isAuth ? children : <Navigate to="/login" />;
+}
+```  
+
+Usage:
+```jsx
+<Route path="/dashboard" element={
+  <PrivateRoute>
+    <Dashboard />
+  </PrivateRoute>
+} />
+```  
+
+## 🔄 Redirects
+
+Use `<Navigate />` to redirect:
+```jsx
+<Route path="/old" element={<Navigate to="/new" />} />
+```  
+
+## 🧰 Not Found Page
+```jsx
+<Route path="*" element={<NotFound />} />
+```  
+This will match any route that wasn’t matched above it.  
+
+## 💬 useLocation() & useHistory()
+
+**`useLocation()`**
+
+Gives current URL info.
+
+```jsx
+const location = useLocation();
+console.log(location.pathname); // '/about'
+```  
+ 
+`useNavigate()` replaces `useHistory()` from older versions.
+
+## 🔁 useOutletContext() (Sharing data between parent and nested route)
+
+In parent:
+```jsx
+<Outlet context={{ user: 'Praveen' }} />
+```  
+In nested child:
+```jsx
+const { user } = useOutletContext();
+```  
+
+## 🧪 Lazy Loading Routes  
+
+```jsx
+import { lazy, Suspense } from 'react';
+const LazyAbout = lazy(() => import('./About'));
+
+<Route
+  path="/about"
+  element={
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <LazyAbout />
+    </Suspense>
+  }
+/>
+```    
+
+## 🛑 Error Boundaries (React Router v6.4+)  
+We can handle route-level errors using `errorElement`.
+
+```jsx
+<Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+  <Route index element={<Home />} />
+</Route>
+Useful for catching errors from loaders or rendering logic and displaying custom error UIs.
+# 🪝 All Useful Hooks Recap  
+
+| Hook                 | Purpose                        |
+| -------------------- | ------------------------------ |
+| `useParams()`        | Get dynamic params from URL    |
+| `useNavigate()`      | Programmatically navigate      |
+| `useLocation()`      | Access current URL info        |
+| `useOutlet()`        | Render nested route children   |
+| `useOutletContext()` | Share context to nested routes |
