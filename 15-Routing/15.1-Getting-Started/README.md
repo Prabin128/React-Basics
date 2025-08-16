@@ -455,7 +455,29 @@ We can handle route-level errors using `errorElement`.
 <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
   <Route index element={<Home />} />
 </Route>
-Useful for catching errors from loaders or rendering logic and displaying custom error UIs.
+```  
+
+Useful for catching errors from loaders or rendering logic and displaying custom error UIs.  
+
+## 📡 Data APIs in React Router v6.4+ (Optional Advanced)  
+
+React Router v6.4+ introduced data APIs for handling async data and form actions.
+
+🔹 `loader`: Fetch data before rendering
+🔹 `action`: Handle form submissions
+🔹 `useLoaderData()`: Access data returned from a loader
+🔹 `useActionData()`: Access data returned from an action
+
+```jsx
+<Route
+  path="/profile"
+  element={<Profile />}
+  loader={fetchUserData}
+/>
+```  
+
+This enables a data-driven approach, closer to frameworks like **Remix** and **Next.js**, and is useful for complex or SEO-sensitive apps.
+
 # 🪝 All Useful Hooks Recap  
 
 | Hook                 | Purpose                        |
