@@ -73,4 +73,32 @@ Vite automatically recompiles your code whenever you make changes, and the outpu
 
 You can now work on this local version, and Vite will automatically recompile your code whenever you make updates.  
 
-[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/react_typescript_8.png)](#react_typescript)    
+[![-----------------------------------------------------](https://github.com/Prabin128/React-Basics/blob/main/assets/react_typescript_8.png)](#react_typescript)      
+
+
+## 📁 Project Structure (Optional Overview)
+
+Here's a brief overview of the initial project structure:  
+
+```sh
+react-app/
+├── node_modules/              # Installed dependencies
+├── public/                    # Static assets
+│   └── vite.svg
+├── src/                       # Main source code
+│   ├── assets/                # Default Vite asset folder
+│   │   └── react.svg
+│   ├── App.css                # App-level styles
+│   ├── App.tsx                # Main app component
+│   ├── index.css              # Global styles
+│   ├── main.tsx               # App entry point
+│   └── vite-env.d.ts          # Vite TS declarations
+├── .gitignore
+├── index.html                 # HTML template
+├── package.json
+├── tsconfig.json              # TypeScript config
+├── tsconfig.node.json         # Node-related TS config for tooling
+├── vite.config.ts             # Vite configuration
+└── README.md
+
+```    
