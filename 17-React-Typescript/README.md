@@ -24,8 +24,17 @@ npm create vite@latest react-app
 **Method B: Skip prompts (Recommended)**
 You can write the below command to skip the Steps aand directly jump into Step 5
 ```sh
-npm create vite@latest react-app --template react-ts  
-```
+npm create vite@latest react-app -- --template react-ts  
+```    
+**✅ Explanation:**  
+
+The `--` before `--template` is important:
+- It tells `npm` to stop parsing arguments for itself.
+- Everything after `--` is passed directly to the `create-vite` CLI tool.  
+
+**What this does:**
+- Creates a new Vite project in a folder called `react-app`
+- Uses the `react-ts` (React + TypeScript) template.   
 
 ### Step 3. Since Vite isn't installed initially, type y to continue with the setup. Next, you'll be prompted to choose a framework. Use the down arrow key to select React.  
 
